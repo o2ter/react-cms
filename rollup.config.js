@@ -3,6 +3,7 @@ import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
+import sass from 'rollup-plugin-sass'
 import dts from 'rollup-plugin-dts';
 
 const rollupPlugins = [
@@ -16,6 +17,9 @@ const rollupPlugins = [
     transformMixedEsModules: true,
   }),
   json(),
+  sass({
+    output: true,
+  }),
 ];
 
 const rollupOutputs = (name) => [

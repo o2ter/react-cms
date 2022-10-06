@@ -1,5 +1,5 @@
 //
-//  index.js
+//  main.scss
 //
 //  The MIT License
 //  Copyright (c) 2021 - 2022 O2ter Limited. All rights reserved.
@@ -23,5 +23,5 @@
 //  THE SOFTWARE.
 //
 
-import './css/main.scss';
-import _ from 'lodash';
+@import "~bootstrap/scss/bootstrap";
+@import "./site";
