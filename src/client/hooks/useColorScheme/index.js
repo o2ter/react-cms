@@ -23,41 +23,15 @@
 //  THE SOFTWARE.
 //
 
-import './css/main.scss';
-
 import _ from 'lodash';
-import React from 'react';
-import { Navigator, Route, SafeAreaProvider } from 'o2ter-ui';
+import { useColorScheme as _useColorScheme } from 'react-native';
 
-import NotFound from './pages/NotFound';
+export function darkModeEnabled() {
+  const ENABLE_DARK_MODE = process.env.ENABLE_DARK_MODE;
+  return ENABLE_DARK_MODE === '1' || ENABLE_DARK_MODE === 'true';
+}
 
-import {
-  ActivityIndicatorProvider,
-  ToastProvider,
-  ModalProvider,
-} from './components';
-
-import { Layout } from './layout';
-
-const ProviderChain = ({ providers = [], children }) => _.reduceRight(providers, (children, Provider) => <Provider>{children}</Provider>, children);
-const appProviders = [
-  ActivityIndicatorProvider,
-  ToastProvider,
-  ModalProvider,
-]
-
-export const Dashboard = () => (
-  <SafeAreaProvider
-    initialMetrics={{
-      frame: { x: 0, y: 0, width: 0, height: 0 },
-      insets: { top: 0, left: 0, right: 0, bottom: 0 },
-    }}>
-    <ProviderChain providers={appProviders}>
-      <Layout>
-        <Navigator>
-          <Route path='*' title='404 Not Found' statusCode={404} component={NotFound} />
-        </Navigator>
-      </Layout>
-    </ProviderChain>
-  </SafeAreaProvider>
-)
+export function useColorScheme() {
+  const colorScheme = _useColorScheme() ?? 'light';
+  return darkModeEnabled() ? colorScheme : 'light';
+}

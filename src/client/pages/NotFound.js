@@ -1,5 +1,5 @@
 //
-//  index.js
+//  NotFound.js
 //
 //  The MIT License
 //  Copyright (c) 2021 - 2022 O2ter Limited. All rights reserved.
@@ -23,41 +23,17 @@
 //  THE SOFTWARE.
 //
 
-import './css/main.scss';
-
 import _ from 'lodash';
 import React from 'react';
-import { Navigator, Route, SafeAreaProvider } from 'o2ter-ui';
+import { Text, View } from 'o2ter-ui';
 
-import NotFound from './pages/NotFound';
+import Localization from '../i18n/pages/NotFound';
 
-import {
-  ActivityIndicatorProvider,
-  ToastProvider,
-  ModalProvider,
-} from './components';
+export default function NotFound() {
 
-import { Layout } from './layout';
+  const localization = Localization.useLocalize();
 
-const ProviderChain = ({ providers = [], children }) => _.reduceRight(providers, (children, Provider) => <Provider>{children}</Provider>, children);
-const appProviders = [
-  ActivityIndicatorProvider,
-  ToastProvider,
-  ModalProvider,
-]
-
-export const Dashboard = () => (
-  <SafeAreaProvider
-    initialMetrics={{
-      frame: { x: 0, y: 0, width: 0, height: 0 },
-      insets: { top: 0, left: 0, right: 0, bottom: 0 },
-    }}>
-    <ProviderChain providers={appProviders}>
-      <Layout>
-        <Navigator>
-          <Route path='*' title='404 Not Found' statusCode={404} component={NotFound} />
-        </Navigator>
-      </Layout>
-    </ProviderChain>
-  </SafeAreaProvider>
-)
+  return <View style={{ padding: 10 }}>
+    <Text style={{ fontWeight: 'bold' }}>{localization.string('NotFoundMessage')}</Text>
+  </View>;
+}

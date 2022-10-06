@@ -23,41 +23,22 @@
 //  THE SOFTWARE.
 //
 
-import './css/main.scss';
-
 import _ from 'lodash';
 import React from 'react';
-import { Navigator, Route, SafeAreaProvider } from 'o2ter-ui';
+import { View } from 'o2ter-ui';
+import { Header } from './Header';
+import { Footer } from './Footer';
 
-import NotFound from './pages/NotFound';
+export const Layout = ({
+  children
+}) => {
+  return (
+    <>
+      <Header />
+      <View style={{ flex: 1 }}>{children}</View>
+      <Footer />
+    </>
+  );
+}
 
-import {
-  ActivityIndicatorProvider,
-  ToastProvider,
-  ModalProvider,
-} from './components';
-
-import { Layout } from './layout';
-
-const ProviderChain = ({ providers = [], children }) => _.reduceRight(providers, (children, Provider) => <Provider>{children}</Provider>, children);
-const appProviders = [
-  ActivityIndicatorProvider,
-  ToastProvider,
-  ModalProvider,
-]
-
-export const Dashboard = () => (
-  <SafeAreaProvider
-    initialMetrics={{
-      frame: { x: 0, y: 0, width: 0, height: 0 },
-      insets: { top: 0, left: 0, right: 0, bottom: 0 },
-    }}>
-    <ProviderChain providers={appProviders}>
-      <Layout>
-        <Navigator>
-          <Route path='*' title='404 Not Found' statusCode={404} component={NotFound} />
-        </Navigator>
-      </Layout>
-    </ProviderChain>
-  </SafeAreaProvider>
-)
+export default Layout;
