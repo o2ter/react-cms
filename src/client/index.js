@@ -27,7 +27,7 @@ import './css/main.scss';
 
 import _ from 'lodash';
 import React from 'react';
-import { Navigator, Route, SafeAreaProvider } from 'o2ter-ui';
+import { Navigator, Route } from 'o2ter-ui';
 
 import NotFound from './pages/NotFound';
 
@@ -47,17 +47,11 @@ const appProviders = [
 ]
 
 export const Dashboard = () => (
-  <SafeAreaProvider
-    initialMetrics={{
-      frame: { x: 0, y: 0, width: 0, height: 0 },
-      insets: { top: 0, left: 0, right: 0, bottom: 0 },
-    }}>
-    <ProviderChain providers={appProviders}>
-      <Layout>
-        <Navigator>
-          <Route path='*' title='404 Not Found' statusCode={404} component={NotFound} />
-        </Navigator>
-      </Layout>
-    </ProviderChain>
-  </SafeAreaProvider>
+  <ProviderChain providers={appProviders}>
+    <Layout>
+      <Navigator>
+        <Route path='*' title='404 Not Found' statusCode={404} component={NotFound} />
+      </Navigator>
+    </Layout>
+  </ProviderChain>
 )
