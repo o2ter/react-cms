@@ -27,7 +27,7 @@ import _ from 'lodash';
 import React from 'react';
 import { View } from 'o2ter-ui';
 import { Header } from './Header';
-import { Footer } from './Footer';
+import { SideMenu } from './SideMenu';
 
 export const Layout = ({
   children
@@ -35,8 +35,10 @@ export const Layout = ({
   return (
     <>
       <Header />
-      <View style={{ flex: 1 }}>{children}</View>
-      <Footer />
+      <View style={{ flex: 1, flexDirection: 'row' }}>
+        <SideMenu />
+        <View style={{ flex: 1 }}>{children}</View>
+      </View>
     </>
   );
 }

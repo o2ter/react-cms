@@ -26,11 +26,11 @@
 import _ from 'lodash';
 import React from 'react';
 
-export const Footer = () => {
+export const SideMenu = () => {
   return (
     <>
     </>
   );
 }
 
-export default Footer;
+export default SideMenu;
