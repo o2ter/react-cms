@@ -25,22 +25,45 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { View, shadeColor } from 'o2ter-ui';
+import { StyleSheet } from 'react-native';
+import { View, Text, shiftColor } from 'o2ter-ui';
 
 import { useTheme } from '../../theme';
 
-export const SideMenu: React.FC = () => {
+export type MenuItem = {
+  icon: React.ReactNode;
+  title: string;
+  children: MenuItem[];
+}
+
+export const SideMenu: React.FC<{
+  items: MenuItem[];
+}> = ({
+  items,
+}) => {
 
   const theme = useTheme();
 
   const _color = theme.color ?? 'primary'
   const theme_color = theme.colors[_color] ?? _color;
 
+  const style = React.useMemo(() => StyleSheet.create({
+    container: {
+      backgroundColor: theme_color,
+    },
+    text: {
+      color: theme.colorContrast(theme_color),
+    },
+  }), [theme]);
+
   return (
-    <View style={{
-      flex: 1,
-      backgroundColor: shadeColor(theme_color, theme.colorWeights['600'])
-    }}>
+    <View style={style.container}>
+      <View style={{ flexDirection: 'row' }}>
+        {theme.brandIcon}
+        <Text style={style.text}>{theme.brandTitle}</Text>
+      </View>
+      <View style={{ marginBottom: 'auto' }}>
+      </View>
     </View>
   );
 }

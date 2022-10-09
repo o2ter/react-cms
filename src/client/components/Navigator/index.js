@@ -14,7 +14,7 @@ const _id = uuid.v4();
 
 export const Navigator = ({ pages }) => (
   <_Navigator>
-    {pages.map(({ path, ...props }) => (
+    {pages?.map(({ path, ...props }) => (
       <Route key={`${_id}-${path}`} path={path} {...props} />
     ))}
     {_.isNil(_.find(pages, p => p.path === '*')) && <Route path='*' title='404 Not Found' statusCode={404} component={NotFound} />}

@@ -34,7 +34,7 @@ import {
   ProviderChain,
 } from '../components';
 
-import { Layout } from '../layout';
+import { Layout, MenuItem } from '../layout';
 import { ThemeProvider, ThemeProviderProps } from '../theme';
 import Navigator from '../components/Navigator';
 
@@ -46,14 +46,16 @@ const appProviders = [
 
 export const Dashboard: React.FC<{
   pages: ComponentPropsWithoutRef<typeof Route>[];
+  menu: MenuItem[];
 } & ThemeProviderProps> = ({
   pages,
+  menu,
   children,
   ...props
 }) => (
   <ThemeProvider {...props}>
     <ProviderChain providers={appProviders}>
-      <Layout>
+      <Layout menu={menu}>
         <Navigator pages={pages} />
       </Layout>
     </ProviderChain>

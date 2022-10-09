@@ -26,19 +26,24 @@
 import _ from 'lodash';
 import React from 'react';
 import { View } from 'o2ter-ui';
-import { Header } from './Header';
-import { SideMenu } from './SideMenu';
+import { SideMenu, MenuItem } from './SideMenu';
 
-export const Layout: React.FC = ({
+export { MenuItem };
+
+export const Layout: React.FC<{
+  menu: MenuItem[];
+}> = ({
+  menu,
   children
 }) => (
-  <>
-    <Header />
-    <View style={{ flex: 1, flexDirection: 'row' }}>
-      <SideMenu />
-      <View style={{ flex: 1 }}>{children}</View>
-    </View>
-  </>
+  <View style={{
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'stretch',
+  }}>
+    <SideMenu items={menu} />
+    <View style={{ flex: 1 }}>{children}</View>
+  </View>
 );
 
 export default Layout;
