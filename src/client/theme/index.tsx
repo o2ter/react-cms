@@ -1,5 +1,5 @@
 //
-//  index.js
+//  index.tsx
 //
 //  The MIT License
 //  Copyright (c) 2021 - 2022 O2ter Limited. All rights reserved.
@@ -25,12 +25,17 @@
 
 import _ from 'lodash';
 import React from 'react';
+import { useTheme as _useTheme } from 'o2ter-ui';
 
-export const Header = () => {
-  return (
-    <>
-    </>
-  );
+export type ThemeProviderProps = {
+  color?: string;
 }
 
-export default Header;
+const ThemeContext = React.createContext<ThemeProviderProps>({});
+
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, ...props }) => <ThemeContext.Provider value={props}>{children}</ThemeContext.Provider>
+
+export const useTheme = () => ({
+  ..._useTheme(),
+  ...React.useContext(ThemeContext),
+});

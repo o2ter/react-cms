@@ -26,11 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-export const SideMenu = () => {
-  return (
-    <>
-    </>
-  );
-}
-
-export default SideMenu;
+export const ProviderChain = ({
+  providers = [], 
+  children
+}) => _.reduceRight(providers, (children, Provider) => <Provider>{children}</Provider>, children);

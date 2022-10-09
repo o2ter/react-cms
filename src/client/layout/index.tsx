@@ -1,5 +1,5 @@
 //
-//  index.js
+//  index.tsx
 //
 //  The MIT License
 //  Copyright (c) 2021 - 2022 O2ter Limited. All rights reserved.
@@ -23,7 +23,22 @@
 //  THE SOFTWARE.
 //
 
-export { ActivityIndicatorProvider } from './ActivityIndicatorProvider';
-export { ToastProvider } from './ToastProvider';
-export { ModalProvider } from './ModalProvider';
-export { ProviderChain } from './ProviderChain';
+import _ from 'lodash';
+import React from 'react';
+import { View } from 'o2ter-ui';
+import { Header } from './Header';
+import { SideMenu } from './SideMenu';
+
+export const Layout: React.FC = ({
+  children
+}) => (
+  <>
+    <Header />
+    <View style={{ flex: 1, flexDirection: 'row' }}>
+      <SideMenu />
+      <View style={{ flex: 1 }}>{children}</View>
+    </View>
+  </>
+);
+
+export default Layout;

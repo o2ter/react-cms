@@ -25,22 +25,24 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { View } from 'o2ter-ui';
-import { Header } from './Header';
-import { SideMenu } from './SideMenu';
+import { View, shadeColor } from 'o2ter-ui';
 
-export const Layout = ({
-  children
-}) => {
+import { useTheme } from '../../theme';
+
+export const SideMenu: React.FC = () => {
+
+  const theme = useTheme();
+
+  const _color = theme.color ?? 'primary'
+  const theme_color = theme.colors[_color] ?? _color;
+
   return (
-    <>
-      <Header />
-      <View style={{ flex: 1, flexDirection: 'row' }}>
-        <SideMenu />
-        <View style={{ flex: 1 }}>{children}</View>
-      </View>
-    </>
+    <View style={{
+      flex: 1,
+      backgroundColor: shadeColor(theme_color, theme.colorWeights['600'])
+    }}>
+    </View>
   );
 }
 
-export default Layout;
+export default SideMenu;

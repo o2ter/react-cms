@@ -23,7 +23,25 @@
 //  THE SOFTWARE.
 //
 
-export { ActivityIndicatorProvider } from './ActivityIndicatorProvider';
-export { ToastProvider } from './ToastProvider';
-export { ModalProvider } from './ModalProvider';
-export { ProviderChain } from './ProviderChain';
+import _ from 'lodash';
+import React from 'react';
+import { shadeColor } from 'o2ter-ui';
+
+import { useTheme } from '../../theme';
+
+export const Header: React.FC = () => {
+
+  const theme = useTheme();
+
+  const _color = theme.color ?? 'primary'
+  const theme_color = theme.colors[_color] ?? _color;
+
+  return (
+    <nav style={{
+      backgroundColor: shadeColor(theme_color, theme.colorWeights['600'])
+    }}>
+    </nav>
+  );
+}
+
+export default Header;

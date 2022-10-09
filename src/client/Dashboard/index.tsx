@@ -1,5 +1,5 @@
 //
-//  index.js
+//  index.tsx
 //
 //  The MIT License
 //  Copyright (c) 2021 - 2022 O2ter Limited. All rights reserved.
@@ -23,7 +23,39 @@
 //  THE SOFTWARE.
 //
 
-export { ActivityIndicatorProvider } from './ActivityIndicatorProvider';
-export { ToastProvider } from './ToastProvider';
-export { ModalProvider } from './ModalProvider';
-export { ProviderChain } from './ProviderChain';
+import _ from 'lodash';
+import React, { ComponentPropsWithoutRef } from 'react';
+import { Route } from 'o2ter-ui/dist/index.web';
+
+import {
+  ActivityIndicatorProvider,
+  ToastProvider,
+  ModalProvider,
+  ProviderChain,
+} from '../components';
+
+import { Layout } from '../layout';
+import { ThemeProvider, ThemeProviderProps } from '../theme';
+import Navigator from '../components/Navigator';
+
+const appProviders = [
+  ActivityIndicatorProvider,
+  ToastProvider,
+  ModalProvider,
+]
+
+export const Dashboard: React.FC<{
+  pages: ComponentPropsWithoutRef<typeof Route>[];
+} & ThemeProviderProps> = ({
+  pages,
+  children,
+  ...props
+}) => (
+  <ThemeProvider {...props}>
+    <ProviderChain providers={appProviders}>
+      <Layout>
+        <Navigator pages={pages} />
+      </Layout>
+    </ProviderChain>
+  </ThemeProvider>
+)
