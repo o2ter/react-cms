@@ -30,9 +30,9 @@ import { SideMenu, MenuItem } from './SideMenu';
 
 export { MenuItem };
 
-export const Layout: React.FC<{
+export const Layout: React.FC<React.PropsWithChildren<{
   menu: MenuItem[];
-}> = ({
+}>> = ({
   menu,
   children
 }) => (

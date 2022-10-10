@@ -35,7 +35,7 @@ export type ThemeProviderProps = {
 
 const ThemeContext = React.createContext<ThemeProviderProps>({});
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, ...props }) => <ThemeContext.Provider value={props}>{children}</ThemeContext.Provider>
+export const ThemeProvider: React.FC<React.PropsWithChildren<ThemeProviderProps>> = ({ children, ...props }) => <ThemeContext.Provider value={props}>{children}</ThemeContext.Provider>
 
 export const useTheme = () => ({
   ..._useTheme(),
