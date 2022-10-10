@@ -16,5 +16,6 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
     "downlevelIteration": true,
+    "moduleSuffixes": [".web", ""]
   }
 }

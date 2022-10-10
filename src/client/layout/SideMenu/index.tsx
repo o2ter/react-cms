@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Text, shiftColor } from 'o2ter-ui';
+import { View, Text } from 'o2ter-ui';
 
 import { useTheme } from '../../theme';
 

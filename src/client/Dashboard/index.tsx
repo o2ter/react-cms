@@ -25,7 +25,7 @@
 
 import _ from 'lodash';
 import React, { ComponentPropsWithoutRef } from 'react';
-import { Route } from 'o2ter-ui/dist/index.web';
+import { Route } from 'o2ter-ui';
 
 import {
   ActivityIndicatorProvider,
