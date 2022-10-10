@@ -44,13 +44,12 @@ const appProviders = [
   ModalProvider,
 ]
 
-export const Dashboard: React.FC<React.PropsWithChildren<{
+export const Dashboard: React.FC<{
   pages: ComponentPropsWithoutRef<typeof Route>[];
   menu: MenuItem[];
-} & ThemeProviderProps>> = ({
+} & ThemeProviderProps> = ({
   pages,
   menu,
-  children,
   ...props
 }) => (
   <ThemeProvider {...props}>
