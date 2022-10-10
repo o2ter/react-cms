@@ -15,8 +15,8 @@
   "dependencies": {
     "@o2ter/react-route": ">=0.0.3",
     "lodash": ">=4.17.21",
-    "o2ter-ui": ">=0.0.34",
-    "sugax": ">=1.0.44"
+    "o2ter-ui": ">=0.0.36",
+    "sugax": ">=1.0.46"
   },
   "peerDependencies": {
     "react": ">=18.2.0",
