@@ -14,7 +14,7 @@
     "rollup": "yarn clean && rollup -c"
   },
   "dependencies": {
-    "@o2ter/react-route": ">=0.0.3",
+    "@o2ter/react-route": ">=0.0.5",
     "lodash": ">=4.17.21",
     "o2ter-ui": ">=0.0.37",
     "sugax": ">=1.0.46"
@@ -43,7 +43,7 @@
     "rollup-plugin-dts": "^4.2.3",
     "rollup-plugin-sass": "^1.12.16",
     "tslib": "^2.4.0",
-    "typescript": "^4.5.5",
+    "typescript": "^4.8.4",
     "webpack": "^5.74.0"
   }
 }
