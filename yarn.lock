@@ -2448,10 +2448,10 @@ o2ter-ui@>=0.0.32:
     react-router-dom ">=6.4.2"
     sugax ">=1.0.44"
 
-o2ter-ui@>=0.0.36:
-  version "0.0.36"
-  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.36.tgz#6ffa5dc0ad9b0f06282e17d8fbcc1b841d1d5e28"
-  integrity sha512-s9HBoH82oN+/MiYzIXhPfxbymalIwncr5Imp5Wl7NLrVJa0e3sLC6jbHMhor2DD2I6LH9XGEc0OXuPkU8eTTsQ==
+o2ter-ui@>=0.0.37:
+  version "0.0.37"
+  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.37.tgz#3f0e25b2a004f732985a14d647d61e847fc4f1e3"
+  integrity sha512-h+8z+Z4kimz9YUrXiV0oVAqAd/cDPdp63c+hBoLORC+VI4+le9DlOvzWF4TYOh5SDkfNL2xV4mxilLyZ+lyy3g==
   dependencies:
     "@react-native-picker/picker" ">=2.4.7"
     events ">=3.3.0"
