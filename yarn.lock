@@ -2446,6 +2446,31 @@ o2ter-ui@>=0.0.37:
     react-router-dom ">=6.4.2"
     sugax ">=1.0.46"
 
+o2ter-ui@>=0.0.38:
+  version "0.0.38"
+  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.38.tgz#d1dbdb7c1217dc527687ab03c7ef8b4668e92bb1"
+  integrity sha512-D6u7v6pXWT/VZ24xDpNHsyfRjjaI1D6fbiNj4M6aWi66ozmkIvnZl1o7sBS6kS1hwWtdKIC0shfZUS6zIG+pqA==
+  dependencies:
+    "@react-native-picker/picker" ">=2.4.7"
+    events ">=3.3.0"
+    jsbarcode ">=3.11.5"
+    lodash ">=4.17.21"
+    lottie-ios ">=3.4.4"
+    lottie-react-native ">=5.1.4"
+    lottie-web ">=5.9.6"
+    luxon ">=3.0.4"
+    normalize-css-color ">=1.0.2"
+    qrcode ">=1.5.1"
+    react-dom ">=18.2.0"
+    react-native-fast-image ">=8.6.1"
+    react-native-render-html ">=6.3.4"
+    react-native-safe-area-context ">=4.4.1"
+    react-native-svg ">=13.4.0"
+    react-native-uuid ">=2.0.1"
+    react-native-vector-icons ">=9.2.0"
+    react-router-dom ">=6.4.2"
+    sugax ">=1.0.46"
+
 object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
