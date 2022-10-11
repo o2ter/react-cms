@@ -42,7 +42,10 @@ const rollupOutputs = (name) => [
     ],
     plugins: [
       resolve({
-        extensions: ['.ts', '.tsx', '.mjs', '.js']
+        extensions: [
+          '.web.ts', '.web.tsx', '.web.mjs', '.web.js',
+          '.ts', '.tsx', '.mjs', '.js',
+        ]
       }),
       ...rollupPlugins
     ],
@@ -59,7 +62,10 @@ const rollupOutputs = (name) => [
     ],
     plugins: [
       resolve({
-        extensions: ['.ts', '.tsx', '.mjs', '.js']
+        extensions: [
+          '.web.ts', '.web.tsx', '.web.mjs', '.web.js',
+          '.ts', '.tsx', '.mjs', '.js',
+        ]
       }),
       dts()
     ],
