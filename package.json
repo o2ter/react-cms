@@ -2,6 +2,7 @@
   "name": "@o2ter/react-cms",
   "version": "1.0.0",
   "main": "dist/index",
+  "module": "dist/index",
   "types": "dist/index.d.ts",
   "files": [
     "dist/*"
@@ -16,8 +17,8 @@
   "dependencies": {
     "@o2ter/react-route": ">=0.0.5",
     "lodash": ">=4.17.21",
-    "o2ter-ui": ">=0.0.39",
-    "sugax": ">=1.0.47"
+    "o2ter-ui": ">=0.0.40",
+    "sugax": ">=1.0.48"
   },
   "peerDependencies": {
     "react": ">=18.2.0",
