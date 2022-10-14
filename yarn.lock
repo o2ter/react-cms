@@ -2446,10 +2446,10 @@ o2ter-ui@>=0.0.37:
     react-router-dom ">=6.4.2"
     sugax ">=1.0.46"
 
-o2ter-ui@>=0.0.38:
-  version "0.0.38"
-  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.38.tgz#d1dbdb7c1217dc527687ab03c7ef8b4668e92bb1"
-  integrity sha512-D6u7v6pXWT/VZ24xDpNHsyfRjjaI1D6fbiNj4M6aWi66ozmkIvnZl1o7sBS6kS1hwWtdKIC0shfZUS6zIG+pqA==
+o2ter-ui@>=0.0.39:
+  version "0.0.39"
+  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.39.tgz#5c5ef0d4fd5151d98627b46dece84f5c9d5f5c1f"
+  integrity sha512-8CHGnWtIPHcUQiVjdINQXyX2iK7eslIW4j1WegdiVsMZr0p8ciUCTYypHQkaBMs5/WsSiiywH4KhnYgASIPq3g==
   dependencies:
     "@react-native-picker/picker" ">=2.4.7"
     events ">=3.3.0"
@@ -2469,7 +2469,7 @@ o2ter-ui@>=0.0.38:
     react-native-uuid ">=2.0.1"
     react-native-vector-icons ">=9.2.0"
     react-router-dom ">=6.4.2"
-    sugax ">=1.0.46"
+    sugax ">=1.0.47"
 
 object-assign@^4.1.1:
   version "4.1.1"
@@ -2919,6 +2919,14 @@ sugax@>=1.0.46:
   version "1.0.46"
   resolved "https://registry.yarnpkg.com/sugax/-/sugax-1.0.46.tgz#d50923f031c6bcf4cfb00d4e418939cfb6d67428"
   integrity sha512-03EjLId5OB8lo3x/ygd6eIUQ39DV/O7cKdD1PGa/4EYDaQG0iu95dLRF4f3XQwfwD371BB+QM8mbJS9zRfMWAg==
+  dependencies:
+    events ">=3.3.0"
+    lodash ">=4.17.21"
+
+sugax@>=1.0.47:
+  version "1.0.47"
+  resolved "https://registry.yarnpkg.com/sugax/-/sugax-1.0.47.tgz#3612ca83054e56f996b515b8c064bb95cfcd5f42"
+  integrity sha512-fzE1YNszroXTx7lwuDLbiegyqFj6YJiP0Rlr2cUBkFVtfIpj+MiFxTm8xYG498kHsarqhXEc4iZIkK5aqcyk1Q==
   dependencies:
     events ">=3.3.0"
     lodash ">=4.17.21"
