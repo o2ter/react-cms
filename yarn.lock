@@ -2270,10 +2270,10 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
-o2ter-ui@>=0.0.49:
-  version "0.0.49"
-  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.49.tgz#0e43de618a08b3985e7f1586f4199e6932acba5f"
-  integrity sha512-1SjEbQVTyMvEjN7iG47KrWKSGf8oJQKnoX6QYupeB46XwRZ0gmVKScDfdd7vxH7IJd2Js8f4bmw+aQtJLPQlUg==
+o2ter-ui@>=0.0.50:
+  version "0.0.50"
+  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.50.tgz#1040cc0ce962e7569c324c4aa7d6ffc5f1593bf3"
+  integrity sha512-tgyTfC9nabBPLrgKlGKWOCKRzu0WQwMn0fJYypLUK1Eb3/oq/cBvVJn/PVm26QRyDkfPdWUNfsUDlyAkW86zBQ==
   dependencies:
     "@react-native-picker/picker" ">=2.4.7"
     events ">=3.3.0"
