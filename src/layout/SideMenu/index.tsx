@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Text } from 'o2ter-ui';
+import { View, Text, shadeColor } from 'o2ter-ui';
 
 import { useTheme } from '../../theme';
 
@@ -46,21 +46,30 @@ export const SideMenu: React.FC<{
 
   const _color = theme.color ?? 'primary'
   const theme_color = theme.colors[_color] ?? _color;
+  const theme_dark_color = shadeColor(theme_color, 700);
 
   const style = React.useMemo(() => StyleSheet.create({
-    container: {
+    brandContainer: {
+      flexDirection: 'row',
       backgroundColor: theme_color,
+      padding: theme.spacer * 0.5,
+    },
+    brandText: {
+      color: theme.colorContrast(theme_color),
+    },
+    container: {
+      backgroundColor: theme_dark_color,
     },
     text: {
-      color: theme.colorContrast(theme_color),
+      color: theme.colorContrast(theme_dark_color),
     },
   }), [theme]);
 
   return (
     <View style={style.container}>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={style.brandContainer}>
         {theme.brandIcon}
-        <Text style={style.text}>{theme.brandTitle}</Text>
+        <Text style={style.brandText}>{theme.brandTitle}</Text>
       </View>
       <View style={{ marginBottom: 'auto' }}>
       </View>
