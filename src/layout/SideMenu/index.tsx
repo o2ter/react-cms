@@ -25,7 +25,7 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import { View, Text, TextStyleProvider, shadeColor, List } from 'o2ter-ui';
 
 import { useTheme } from '../../theme';
@@ -39,14 +39,15 @@ export type MenuItem = {
 const MenuItemView = ({
   icon,
   title,
+  style: containerStyle,
   children,
-}: MenuItem) => (
+}: MenuItem & { style: StyleProp<ViewStyle> }) => (
   <>
-    <View style={{ flexDirection: 'row' }}>
+    <View style={containerStyle}>
       {icon}
       <Text>{title}</Text>
     </View>
-    <List data={children} renderItem={({ item }) => <MenuItemView {...item} />} />
+    <List data={children} renderItem={({ item }) => <MenuItemView style={containerStyle} {...item} />} />
   </>
 );
 
@@ -65,6 +66,7 @@ export const SideMenu: React.FC<{
   const style = React.useMemo(() => StyleSheet.create({
     brandContainer: {
       flexDirection: 'row',
+      alignItems: 'center',
       backgroundColor: theme_color,
       padding: theme.spacer * 0.5,
     },
@@ -77,6 +79,11 @@ export const SideMenu: React.FC<{
     text: {
       color: theme.colorContrast(theme_dark_color),
     },
+    menuItemContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: theme.spacer * 0.5,
+    },
   }), [theme]);
 
   return (
@@ -87,7 +94,7 @@ export const SideMenu: React.FC<{
       </View>
       <View style={{ marginBottom: 'auto' }}>
         <TextStyleProvider style={style.text}>
-          <List data={items} renderItem={({ item }) => <MenuItemView {...item} />} />
+          <List data={items} renderItem={({ item }) => <MenuItemView style={style.menuItemContainer} {...item} />} />
         </TextStyleProvider>
       </View>
     </View>
