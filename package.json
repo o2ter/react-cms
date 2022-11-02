@@ -17,7 +17,7 @@
   "dependencies": {
     "bootstrap": ">=5.2.2",
     "lodash": ">=4.17.21",
-    "o2ter-ui": ">=0.0.47",
+    "o2ter-ui": ">=0.0.49",
     "sugax": ">=1.0.51"
   },
   "peerDependencies": {
