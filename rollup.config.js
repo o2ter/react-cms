@@ -22,20 +22,20 @@ const rollupPlugins = [
   }),
 ];
 
-const rollupOutputs = (name) => [
+export default [
   {
-    input: `src/${name}`,
+    input: `src/index`,
     external: [
       /node_modules/
     ],
     output: [
       {
-        file: `dist/${name}.js`,
+        file: `dist/index.js`,
         format: 'cjs',
         sourcemap: true,
       },
       {
-        file: `dist/${name}.mjs`,
+        file: `dist/index.mjs`,
         format: 'esm',
         sourcemap: true,
       },
@@ -50,13 +50,13 @@ const rollupOutputs = (name) => [
       ...rollupPlugins
     ],
   },{
-    input: `src/${name}`,
+    input: `src/index`,
     external: [
       /node_modules/
     ],
     output: [
       {
-        file: `dist/${name}.d.ts`,
+        file: `dist/index.d.ts`,
         format: 'es',
       },
     ],
@@ -69,10 +69,5 @@ const rollupOutputs = (name) => [
       }),
       dts()
     ],
-  },
-];
-
-export default [
-  ...rollupOutputs('index'),
-  ...rollupOutputs('client'),
+  }
 ];

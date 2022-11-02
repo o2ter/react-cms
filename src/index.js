@@ -23,4 +23,5 @@
 //  THE SOFTWARE.
 //
 
-import _ from 'lodash';
+import './css/main.scss';
+export { Dashboard } from './Dashboard';
