@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Text, shadeColor } from 'o2ter-ui';
+import { View, Text, TextStyleProvider, shadeColor, List } from 'o2ter-ui';
 
 import { useTheme } from '../../theme';
 
@@ -35,6 +35,20 @@ export type MenuItem = {
   title: string;
   children: MenuItem[];
 }
+
+const MenuItemView = ({
+  icon,
+  title,
+  children,
+}: MenuItem) => (
+  <>
+    <View style={{ flexDirection: 'row' }}>
+      {icon}
+      <Text>{title}</Text>
+    </View>
+    <List data={children} renderItem={({ item }) => <MenuItemView {...item} />} />
+  </>
+);
 
 export const SideMenu: React.FC<{
   items: MenuItem[];
@@ -72,6 +86,9 @@ export const SideMenu: React.FC<{
         <Text style={style.brandText}>{theme.brandTitle}</Text>
       </View>
       <View style={{ marginBottom: 'auto' }}>
+        <TextStyleProvider style={style.text}>
+          <List data={items} renderItem={({ item }) => <MenuItemView {...item} />} />
+        </TextStyleProvider>
       </View>
     </View>
   );
