@@ -15,9 +15,7 @@ const rollupPlugins = [
     exclude: 'node_modules/**',
     babelHelpers: 'bundled',
   }),
-  commonjs({
-    transformMixedEsModules: true,
-  }),
+  commonjs(),
   json(),
   sass({
     output: true,
