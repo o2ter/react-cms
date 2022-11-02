@@ -60,7 +60,7 @@ export const SideMenu: React.FC<{
 
   const _color = theme.color ?? 'primary'
   const theme_color = theme.colors[_color] ?? _color;
-  const theme_dark_color = shadeColor(theme_color, 700);
+  const theme_dark_color = shadeColor(theme_color, 0.7);
 
   const style = React.useMemo(() => StyleSheet.create({
     brandContainer: {
