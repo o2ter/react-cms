@@ -6,6 +6,8 @@ import json from '@rollup/plugin-json';
 import sass from 'rollup-plugin-sass';
 import dts from 'rollup-plugin-dts';
 
+import packageJson from './package.json';
+
 const rollupPlugins = [
   typescript(),
   babel({
@@ -30,12 +32,12 @@ export default [
     ],
     output: [
       {
-        file: `dist/index.js`,
+        file: packageJson.main + '.js',
         format: 'cjs',
         sourcemap: true,
       },
       {
-        file: `dist/index.mjs`,
+        file: packageJson.module + '.mjs',
         format: 'esm',
         sourcemap: true,
       },
