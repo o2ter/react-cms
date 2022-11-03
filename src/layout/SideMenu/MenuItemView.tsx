@@ -32,46 +32,59 @@ export type MenuItem = {
   icon: React.ReactNode;
   title: string;
   link?: string;
-  active?: (link: ReturnType<typeof useLocation>) => boolean;
-  children: MenuItem[];
-}
+  active?: (location: ReturnType<typeof useLocation>) => boolean;
+  children?: MenuItem[];
+};
 
 type MenuItemProps = MenuItem & {
   style: StyleProp<ViewStyle>;
   themeColor: string;
 };
 
+const active_check = (
+  location: ReturnType<typeof useLocation>,
+  link?: string,
+  active?: (location: ReturnType<typeof useLocation>) => boolean,
+  children?: MenuItem[],
+): boolean => {
+
+  const _active = active ?? ((l) => _.isString(link) && l.pathname === link);
+  if (_active(location)) return true;
+
+  return !_.isNil(_.find(children, (x) => active_check(location, x.link, x.active, x.children)));
+}
+
 export const MenuItemView = ({
   icon,
   title,
   link,
-  active = (l) => _.isString(link) && l.pathname === link,
+  active,
   style,
   themeColor,
   children,
 }: MenuItemProps) => {
 
   const location = useLocation();
-  const isActive = active(location);
+  const isActive = active_check(location, link, active, children);
 
   const label = (
     <View style={[style, isActive ? { backgroundColor: themeColor } : {}]}>
-        <TextStyleProvider style={{ opacity: isActive ? 0.75 : 0.5 }}>
-          {icon}
-          <Text>{title}</Text>
-        </TextStyleProvider>
-      </View>
+      <TextStyleProvider style={{ opacity: isActive ? 0.75 : 0.5 }}>
+        {icon}
+        <Text>{title}</Text>
+      </TextStyleProvider>
+    </View>
   );
 
   return (
     <>
       {_.isString(link) ? <Link to={link} style={{ textDecoration: 'none' }}>{label}</Link> : label}
-      <List data={children} renderItem={({ item }) => (
+      {_.isArray(children) && <List data={children} renderItem={({ item }) => (
         <MenuItemView
           style={style}
           themeColor={themeColor}
           {...item} />
-      )} />
+      )} />}
     </>
   );
 }
