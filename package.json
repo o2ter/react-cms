@@ -15,14 +15,14 @@
     "rollup": "yarn clean && rollup -c"
   },
   "dependencies": {
-    "bootstrap": ">=5.2.2",
-    "lodash": ">=4.17.21",
-    "o2ter-ui": ">=0.0.55",
-    "sugax": ">=1.0.51"
+    "lodash": ">=4.17.21"
   },
   "peerDependencies": {
+    "bootstrap": ">=5.2.2",
+    "o2ter-ui": ">=0.0.55",
     "react": ">=18.2.0",
-    "react-native-web": ">=0.18.9"
+    "react-native-web": ">=0.18.9",
+    "sugax": ">=1.0.51"
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
@@ -35,13 +35,16 @@
     "@rollup/plugin-json": "^5.0.0",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@rollup/plugin-typescript": "^9.0.0",
+    "@types/bootstrap": "^5.2.5",
     "@types/lodash": "^4.14.178",
     "@types/react": "^18.0.21",
     "@types/react-native": "^0.70.4",
     "babel-loader": "^8.2.5",
+    "o2ter-ui": "^0.0.56",
     "rollup": "^2.66.0",
     "rollup-plugin-dts": "^4.2.3",
     "rollup-plugin-sass": "^1.12.16",
+    "sugax": "^1.0.51",
     "tslib": "^2.4.0",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0"

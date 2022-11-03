@@ -1060,6 +1060,11 @@
     htmlparser2 "^7.1.2"
     ramda "^0.27.2"
 
+"@popperjs/core@^2.9.2":
+  version "2.11.6"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
+  integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
+
 "@react-native-picker/picker@>=2.4.7":
   version "2.4.7"
   resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.7.tgz#7b7c2d3fe537cd82ed67c9c7f26039553e194c16"
@@ -1133,6 +1138,13 @@
   dependencies:
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
+
+"@types/bootstrap@^5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@types/bootstrap/-/bootstrap-5.2.5.tgz#0bb5dea7720611b2bb7ba16bd8a64fafd86fb658"
+  integrity sha512-VnalUJ3E/oaV3DYrauEc/sSPpaEPxTV09twSEzY4KFRvyuGlrZUSqG95XZ6ReAi0YMZIs7rXxdngDK2X1YONQA==
+  dependencies:
+    "@popperjs/core" "^2.9.2"
 
 "@types/eslint-scope@^3.7.3":
   version "3.7.4"
@@ -1468,11 +1480,6 @@ boolbase@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
-
-bootstrap@>=5.2.2:
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.2.2.tgz#834e053eed584a65e244d8aa112a6959f56e27a0"
-  integrity sha512-dEtzMTV71n6Fhmbg4fYJzQsw1N29hJKO1js5ackCgIpDcGid2ETMGC6zwSYw09v05Y+oRdQ9loC54zB1La3hHQ==
 
 brace-expansion@^2.0.1:
   version "2.0.1"
@@ -2270,10 +2277,10 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
-o2ter-ui@>=0.0.55:
-  version "0.0.55"
-  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.55.tgz#4454bc81e170a48aa3b24ecf94081b46553e6f4d"
-  integrity sha512-AfDaHJjFC7A5mk//98lchHUFY9+gQZLy9G3tFcDA/ZrvLROooGhZVxXOfW4VfaZ2x5Vnh3hl5X7gq1QGc0SaAQ==
+o2ter-ui@^0.0.56:
+  version "0.0.56"
+  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.56.tgz#00e18d18ae00b441c5c0229f18e9f260655f8ca3"
+  integrity sha512-l0WAykUt2zRlXd5e66Dez93uGlxGJGCFuy9Mlv4xCwsJ6PlV6cF7Qm3HM8wHTj433oU9AZZTIT+Ob3vD5lCAHg==
   dependencies:
     "@react-native-picker/picker" ">=2.4.7"
     events ">=3.3.0"
@@ -2292,7 +2299,6 @@ o2ter-ui@>=0.0.55:
     react-native-svg ">=13.4.0"
     react-native-vector-icons ">=9.2.0"
     react-router-dom ">=6.4.2"
-    sugax ">=1.0.51"
 
 object-assign@^4.1.1:
   version "4.1.1"
@@ -2692,7 +2698,7 @@ strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   dependencies:
     ansi-regex "^5.0.1"
 
-sugax@>=1.0.51:
+sugax@^1.0.51:
   version "1.0.51"
   resolved "https://registry.yarnpkg.com/sugax/-/sugax-1.0.51.tgz#ab9ceaed13fc3de26808e7044957e5867e4e4c56"
   integrity sha512-BZjTpk1OOI/F9lgLLPIo5aoZFaM+kdDpt0MX8qqdONqr9cTXzVq+ugGeQTJLmouv4txIPQdODxGlKqsZxwk6Nw==
