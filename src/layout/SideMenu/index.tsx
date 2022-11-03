@@ -67,9 +67,13 @@ export const SideMenu: React.FC<{
       color: theme.colorContrast(theme_dark_color),
     },
     menuItemContainer: {
+      marginBottom: 'auto',
+      margin: theme.spacer * 0.5,
+      gap: theme.spacer * 0.5,
+    },
+    menuItem: {
       flexDirection: 'row',
       alignItems: 'center',
-      margin: theme.spacer * 0.5,
       padding: theme.spacer * 0.5,
       borderRadius: 8,
       gap: theme.spacer * 0.5,
@@ -82,11 +86,11 @@ export const SideMenu: React.FC<{
         {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
         <Text style={style.brandText}>{theme.brandTitle}</Text>
       </View>
-      <View style={{ marginBottom: 'auto' }}>
+      <View style={style.menuItemContainer}>
         <TextStyleProvider style={style.text}>
           <List data={items} renderItem={({ item }) => (
             <MenuItemView
-              style={style.menuItemContainer}
+              style={style.menuItem}
               themeColor={theme_color}
               {...item} />
           )} />
