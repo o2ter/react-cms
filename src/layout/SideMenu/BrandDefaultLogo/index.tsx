@@ -46,17 +46,17 @@ export const BrandDefaultLogo: React.FC<{
       justifyContent: 'center',
     },
     text: {
-      fontSize: theme.fontSizes.large ?? theme.fontSizeBase * 1.25,
+      fontSize: 24,
       textAlign: 'center',
     },
   }), [theme]);
 
   const rand = cyrb53(name ?? '') / 9007199254740991;
-  const color = hsv2rgb(rand, 1, 0.75);
+  const color = hsv2rgb(rand, 1, 0.85);
 
   return (
     <View style={[style.container, { backgroundColor: tintColor(color, 0) }]}>
-      <Text style={[style.text, { color: tintColor(color, 0.5) }]}>{_.first(name ?? '')?.toUpperCase()}</Text>
+      <Text style={[style.text, { color: tintColor(color, 0.75) }]}>{_.first(name ?? '')?.toUpperCase()}</Text>
     </View>
   );
 }
