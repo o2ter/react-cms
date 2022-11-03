@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Text, TextStyleProvider, shadeColor, List } from 'o2ter-ui';
+import { View, Text, TextStyleProvider, shadeColor, List, ScrollView } from 'o2ter-ui';
 
 import { MenuItem, MenuItemView } from './MenuItemView';
 import { BrandDefaultLogo } from './BrandDefaultLogo';
@@ -87,14 +87,16 @@ export const SideMenu: React.FC<{
         <Text style={style.brandText}>{theme.brandTitle}</Text>
       </View>
       <View style={style.menuItemContainer}>
-        <TextStyleProvider style={style.text}>
-          <List data={items} renderItem={({ item }) => (
-            <MenuItemView
-              style={style.menuItem}
-              themeColor={theme_color}
-              {...item} />
-          )} />
-        </TextStyleProvider>
+        <ScrollView>
+          <TextStyleProvider style={style.text}>
+            <List data={items} renderItem={({ item }) => (
+              <MenuItemView
+                style={style.menuItem}
+                themeColor={theme_color}
+                {...item} />
+            )} />
+          </TextStyleProvider>
+        </ScrollView>
       </View>
     </View>
   );
