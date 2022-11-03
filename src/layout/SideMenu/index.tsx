@@ -25,31 +25,15 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { View, Text, TextStyleProvider, shadeColor, List } from 'o2ter-ui';
+
+import { MenuItem, MenuItemView } from './MenuItemView';
+import { BrandDefaultLogo } from './BrandDefaultLogo';
 
 import { useTheme } from '../../theme';
 
-export type MenuItem = {
-  icon: React.ReactNode;
-  title: string;
-  children: MenuItem[];
-}
-
-const MenuItemView = ({
-  icon,
-  title,
-  style: containerStyle,
-  children,
-}: MenuItem & { style: StyleProp<ViewStyle> }) => (
-  <>
-    <View style={containerStyle}>
-      {icon}
-      <Text>{title}</Text>
-    </View>
-    <List data={children} renderItem={({ item }) => <MenuItemView style={containerStyle} {...item} />} />
-  </>
-);
+export { MenuItem };
 
 export const SideMenu: React.FC<{
   items: MenuItem[];
@@ -68,9 +52,12 @@ export const SideMenu: React.FC<{
       flexDirection: 'row',
       alignItems: 'center',
       backgroundColor: theme_color,
-      padding: theme.spacer * 0.5,
+      paddingHorizontal: theme.spacer,
+      paddingVertical: theme.spacer * 0.5,
+      gap: theme.spacer * 0.5,
     },
     brandText: {
+      fontSize: theme.fontSizes.large ?? theme.fontSizeBase * 1.25,
       color: theme.colorContrast(theme_color),
     },
     container: {
@@ -82,14 +69,16 @@ export const SideMenu: React.FC<{
     menuItemContainer: {
       flexDirection: 'row',
       alignItems: 'center',
-      padding: theme.spacer * 0.5,
+      paddingHorizontal: theme.spacer,
+      paddingVertical: theme.spacer * 0.5,
+      gap: theme.spacer * 0.5,
     },
   }), [theme]);
 
   return (
     <View style={style.container}>
       <View style={style.brandContainer}>
-        {theme.brandIcon}
+        {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
         <Text style={style.brandText}>{theme.brandTitle}</Text>
       </View>
       <View style={{ marginBottom: 'auto' }}>
