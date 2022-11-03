@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { View, Text, List, useLocation, TextStyleProvider } from 'o2ter-ui';
+import { View, Text, List, useLocation, TextStyleProvider, Link } from 'o2ter-ui';
 
 export type MenuItem = {
   icon: React.ReactNode;
@@ -45,7 +45,7 @@ export const MenuItemView = ({
   icon,
   title,
   link,
-  active = (l) => l.pathname === link,
+  active = (l) => _.isString(link) && l.pathname === link,
   style,
   themeColor,
   children,
@@ -54,14 +54,18 @@ export const MenuItemView = ({
   const location = useLocation();
   const isActive = active(location);
 
-  return (
-    <>
-      <View style={[style, isActive ? { backgroundColor: themeColor } : {}]}>
+  const label = (
+    <View style={[style, isActive ? { backgroundColor: themeColor } : {}]}>
         <TextStyleProvider style={{ opacity: isActive ? 0.75 : 0.5 }}>
           {icon}
           <Text>{title}</Text>
         </TextStyleProvider>
       </View>
+  );
+
+  return (
+    <>
+      {_.isString(link) ? <Link to={link} style={{ textDecoration: 'none' }}>{label}</Link> : label}
       <List data={children} renderItem={({ item }) => (
         <MenuItemView
           style={style}
