@@ -23,7 +23,9 @@
 //  THE SOFTWARE.
 //
 
-export const cyrb53 = function(str: string, seed = 0) {
+import _ from 'lodash';
+
+const _cyrb53 = (str: string, seed = 0) => {
   let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
   for (let i = 0, ch; i < str.length; i++) {
       ch = str.charCodeAt(i);
@@ -33,6 +35,7 @@ export const cyrb53 = function(str: string, seed = 0) {
   h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
   h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
   return 4294967296 * (2097151 & h2) + (h1>>>0);
-};
+}
 
+export const cyrb53 = _.assign(_cyrb53, { MAX_VALUE: 9007199254740991 });
 export default cyrb53;

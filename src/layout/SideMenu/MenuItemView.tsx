@@ -26,27 +26,50 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { View, Text, List } from 'o2ter-ui';
+import { View, Text, List, useLocation, TextStyleProvider } from 'o2ter-ui';
 
 export type MenuItem = {
   icon: React.ReactNode;
   title: string;
+  link?: string;
+  active?: (link: ReturnType<typeof useLocation>) => boolean;
   children: MenuItem[];
 }
+
+type MenuItemProps = MenuItem & {
+  style: StyleProp<ViewStyle>;
+  themeColor: string;
+};
 
 export const MenuItemView = ({
   icon,
   title,
-  style: containerStyle,
+  link,
+  active = (l) => l.pathname === link,
+  style,
+  themeColor,
   children,
-}: MenuItem & { style: StyleProp<ViewStyle> }) => (
-  <>
-    <View style={containerStyle}>
-      {icon}
-      <Text>{title}</Text>
-    </View>
-    <List data={children} renderItem={({ item }) => <MenuItemView style={containerStyle} {...item} />} />
-  </>
-);
+}: MenuItemProps) => {
+
+  const location = useLocation();
+  const isActive = active(location);
+
+  return (
+    <>
+      <View style={[style, isActive ? { backgroundColor: themeColor } : {}]}>
+        <TextStyleProvider style={{ opacity: isActive ? 0.75 : 0.5 }}>
+          {icon}
+          <Text>{title}</Text>
+        </TextStyleProvider>
+      </View>
+      <List data={children} renderItem={({ item }) => (
+        <MenuItemView
+          style={style}
+          themeColor={themeColor}
+          {...item} />
+      )} />
+    </>
+  );
+}
 
 export default MenuItemView;

@@ -51,12 +51,12 @@ export const BrandDefaultLogo: React.FC<{
     },
   }), [theme]);
 
-  const rand = cyrb53(name ?? '') / 9007199254740991;
-  const color = hsv2rgb(rand, 1, 0.85);
+  const rand = cyrb53(name ?? '') / cyrb53.MAX_VALUE;
+  const color = hsv2rgb(rand, 1, 0.75);
 
   return (
     <View style={[style.container, { backgroundColor: tintColor(color, 0) }]}>
-      <Text style={[style.text, { color: tintColor(color, 0.75) }]}>{_.first(name ?? '')?.toUpperCase()}</Text>
+      <Text style={[style.text, { color: tintColor(color, 0.65) }]}>{_.first(name ?? '')?.toUpperCase()}</Text>
     </View>
   );
 }

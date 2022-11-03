@@ -44,16 +44,16 @@ export const SideMenu: React.FC<{
   const theme = useTheme();
 
   const _color = theme.color ?? 'primary'
-  const theme_color = theme.colors[_color] ?? _color;
-  const theme_dark_color = shadeColor(theme_color, 0.7);
+  const _theme_color = theme.colors[_color] ?? _color;
+  const theme_color = shadeColor(_theme_color, 0.4);
+  const theme_dark_color = shadeColor(_theme_color, 0.7);
 
   const style = React.useMemo(() => StyleSheet.create({
     brandContainer: {
       flexDirection: 'row',
       alignItems: 'center',
       backgroundColor: theme_color,
-      paddingHorizontal: theme.spacer,
-      paddingVertical: theme.spacer * 0.5,
+      padding: theme.spacer * 0.5,
       gap: theme.spacer * 0.5,
     },
     brandText: {
@@ -69,8 +69,9 @@ export const SideMenu: React.FC<{
     menuItemContainer: {
       flexDirection: 'row',
       alignItems: 'center',
-      paddingHorizontal: theme.spacer,
-      paddingVertical: theme.spacer * 0.5,
+      margin: theme.spacer * 0.5,
+      padding: theme.spacer * 0.5,
+      borderRadius: 8,
       gap: theme.spacer * 0.5,
     },
   }), [theme]);
@@ -83,7 +84,12 @@ export const SideMenu: React.FC<{
       </View>
       <View style={{ marginBottom: 'auto' }}>
         <TextStyleProvider style={style.text}>
-          <List data={items} renderItem={({ item }) => <MenuItemView style={style.menuItemContainer} {...item} />} />
+          <List data={items} renderItem={({ item }) => (
+            <MenuItemView
+              style={style.menuItemContainer}
+              themeColor={theme_color}
+              {...item} />
+          )} />
         </TextStyleProvider>
       </View>
     </View>
