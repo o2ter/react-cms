@@ -86,8 +86,8 @@ export const SideMenu: React.FC<{
         {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
         <Text style={style.brandText}>{theme.brandTitle}</Text>
       </View>
-      <View style={style.menuItemContainer}>
-        <ScrollView>
+      <ScrollView>
+        <View style={style.menuItemContainer}>
           <TextStyleProvider style={style.text}>
             <List data={items} renderItem={({ item }) => (
               <MenuItemView
@@ -96,8 +96,8 @@ export const SideMenu: React.FC<{
                 {...item} />
             )} />
           </TextStyleProvider>
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
     </View>
   );
 }
