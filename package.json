@@ -19,7 +19,7 @@
   },
   "peerDependencies": {
     "bootstrap": ">=5.2.2",
-    "o2ter-ui": ">=0.0.55",
+    "o2ter-ui": ">=0.0.57",
     "react": ">=18.2.0",
     "react-native-web": ">=0.18.9",
     "sugax": ">=1.0.51"
@@ -40,7 +40,7 @@
     "@types/react-native": "^0.70.4",
     "babel-loader": "^8.2.5",
     "bootstrap": "^5.2.2",
-    "o2ter-ui": "^0.0.56",
+    "o2ter-ui": "^0.0.57",
     "rollup": "^2.66.0",
     "rollup-plugin-dts": "^4.2.3",
     "rollup-plugin-sass": "^1.12.16",

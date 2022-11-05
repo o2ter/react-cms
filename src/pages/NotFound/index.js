@@ -1,5 +1,5 @@
 //
-//  index.tsx
+//  index.js
 //
 //  The MIT License
 //  Copyright (c) 2021 - 2022 O2ter Limited. All rights reserved.
@@ -25,28 +25,16 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { View, ErrorBoundary } from 'o2ter-ui';
-import { SideMenu, MenuItem } from './SideMenu';
-import ErrorPage from '../pages/ErrorPage';
+import { Text, View } from 'o2ter-ui';
 
-export { MenuItem };
+import Localization from '../../i18n/pages/NotFound';
 
-export const Layout: React.FC<React.PropsWithChildren<{
-  menu: MenuItem[];
-}>> = ({
-  menu,
-  children
-}) => (
-  <View style={{
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'stretch',
-  }}>
-    <SideMenu items={menu} />
-    <View style={{ flex: 1 }}>
-      <ErrorBoundary fallback={<ErrorPage />}>{children}</ErrorBoundary>
-    </View>
-  </View>
-);
+export default function NotFound() {
 
-export default Layout;
+  const localization = Localization.useLocalize();
+
+  return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Text style={{ fontWeight: 'bold', fontSize: 96 }}>404</Text>
+    <Text style={{ fontWeight: 'bold', fontSize: 24 }}>{localization.string('NotFoundMessage')}</Text>
+  </View>;
+}

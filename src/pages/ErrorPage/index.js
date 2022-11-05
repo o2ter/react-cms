@@ -1,5 +1,5 @@
 //
-//  NotFound.js
+//  index.js
 //
 //  The MIT License
 //  Copyright (c) 2021 - 2022 O2ter Limited. All rights reserved.
@@ -27,14 +27,13 @@ import _ from 'lodash';
 import React from 'react';
 import { Text, View } from 'o2ter-ui';
 
-import Localization from '../i18n/pages/NotFound';
+import Localization from '../../i18n/pages/ErrorPage';
 
-export default function NotFound() {
+export default function ErrorPage() {
 
   const localization = Localization.useLocalize();
 
   return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text style={{ fontWeight: 'bold', fontSize: 96 }}>404</Text>
-    <Text style={{ fontWeight: 'bold', fontSize: 24 }}>{localization.string('NotFoundMessage')}</Text>
+    <Text style={{ fontWeight: 'bold', fontSize: 24 }}>{localization.string('ErrorMessage')}</Text>
   </View>;
 }
