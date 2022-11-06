@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Text, TextStyleProvider, shadeColor, ScrollView } from 'o2ter-ui';
+import { View, Text, TextStyleProvider, shadeColor, List, ScrollView } from 'o2ter-ui';
 
 import { MenuItem, MenuItemView } from './MenuItemView';
 import { BrandDefaultLogo } from './BrandDefaultLogo';
@@ -41,65 +41,65 @@ export const SideMenu: React.FC<{
   items,
 }) => {
 
-    const theme = useTheme();
+  const theme = useTheme();
 
-    const _color = theme.color ?? 'primary'
-    const _theme_color = theme.colors[_color] ?? _color;
-    const theme_color = shadeColor(_theme_color, 0.4);
-    const theme_dark_color = shadeColor(_theme_color, 0.7);
+  const _color = theme.color ?? 'primary'
+  const _theme_color = theme.colors[_color] ?? _color;
+  const theme_color = shadeColor(_theme_color, 0.4);
+  const theme_dark_color = shadeColor(_theme_color, 0.7);
 
-    const style = React.useMemo(() => StyleSheet.create({
-      brandContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: theme_color,
-        padding: theme.spacer * 0.5,
-        gap: theme.spacer * 0.5,
-      },
-      brandText: {
-        fontSize: theme.fontSizes.large ?? theme.fontSizeBase * 1.25,
-        color: theme.colorContrast(theme_color),
-      },
-      container: {
-        backgroundColor: theme_dark_color,
-      },
-      text: {
-        color: theme.colorContrast(theme_dark_color),
-      },
-      menuItemContainer: {
-        marginBottom: 'auto',
-        margin: theme.spacer * 0.5,
-        gap: theme.spacer * 0.5,
-      },
-      menuItem: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        padding: theme.spacer * 0.5,
-        borderRadius: 8,
-        gap: theme.spacer * 0.5,
-      },
-    }), [theme]);
+  const style = React.useMemo(() => StyleSheet.create({
+    brandContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: theme_color,
+      padding: theme.spacer * 0.5,
+      gap: theme.spacer * 0.5,
+    },
+    brandText: {
+      fontSize: theme.fontSizes.large ?? theme.fontSizeBase * 1.25,
+      color: theme.colorContrast(theme_color),
+    },
+    container: {
+      backgroundColor: theme_dark_color,
+    },
+    text: {
+      color: theme.colorContrast(theme_dark_color),
+    },
+    menuItemContainer: {
+      marginBottom: 'auto',
+      margin: theme.spacer * 0.5,
+      gap: theme.spacer * 0.5,
+    },
+    menuItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: theme.spacer * 0.5,
+      borderRadius: 8,
+      gap: theme.spacer * 0.5,
+    },
+  }), [theme]);
 
-    return (
-      <View style={style.container}>
-        <View style={style.brandContainer}>
-          {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
-          <Text style={style.brandText}>{theme.brandTitle}</Text>
-        </View>
-        <ScrollView>
-          <View style={style.menuItemContainer}>
-            <TextStyleProvider style={style.text}>
-              {React.Children.map(items, (item) => (
-                <MenuItemView
-                  style={style.menuItem}
-                  themeColor={theme_color}
-                  {...item} />
-              ))}
-            </TextStyleProvider>
-          </View>
-        </ScrollView>
+  return (
+    <View style={style.container}>
+      <View style={style.brandContainer}>
+        {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
+        <Text style={style.brandText}>{theme.brandTitle}</Text>
       </View>
-    );
-  }
+      <ScrollView>
+        <View style={style.menuItemContainer}>
+          <TextStyleProvider style={style.text}>
+            <List data={items} renderItem={({ item }) => (
+              <MenuItemView
+                style={style.menuItem}
+                themeColor={theme_color}
+                {...item} />
+            )} />
+          </TextStyleProvider>
+        </View>
+      </ScrollView>
+    </View>
+  );
+}
 
 export default SideMenu;
