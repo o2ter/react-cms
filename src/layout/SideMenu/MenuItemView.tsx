@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { View, Text, List, useLocation, TextStyleProvider, Link } from 'o2ter-ui';
+import { View, Text, useLocation, TextStyleProvider, Link } from 'o2ter-ui';
 
 export type MenuItem = {
   icon: React.ReactNode;
@@ -79,12 +79,12 @@ export const MenuItemView = ({
   return (
     <>
       {_.isString(link) ? <Link to={link} style={{ textDecoration: 'none' }}>{label}</Link> : label}
-      {_.isArray(children) && <List data={children} renderItem={({ item }) => (
+      {_.isArray(children) && React.Children.map(children, (item) => (
         <MenuItemView
           style={style}
           themeColor={themeColor}
           {...item} />
-      )} />}
+      ))}
     </>
   );
 }
