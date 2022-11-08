@@ -51,7 +51,8 @@ export default [
       }),
       ...rollupPlugins
     ],
-  },{
+  },
+  {
     input: `src/index`,
     external: [
       /node_modules/
