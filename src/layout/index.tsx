@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Text, shadeColor, ErrorBoundary, ScrollView } from 'o2ter-ui';
+import { shadeColor, ErrorBoundary } from 'o2ter-ui';
 import { SideMenu, MenuItem } from './SideMenu';
 import ErrorPage from '../pages/ErrorPage';
 import { BrandDefaultLogo } from './BrandDefaultLogo';
