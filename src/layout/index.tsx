@@ -40,34 +40,13 @@ export const Layout: React.FC<React.PropsWithChildren<{
   menu,
   children
 }) => {
-  
+
   const theme = useTheme();
 
   const _color = theme.color ?? 'primary';
   const themeColor = shadeColor(theme.colors[_color] ?? _color, 0.4);
 
   const style = React.useMemo(() => StyleSheet.create({
-    brandContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      padding: theme.spacer * 0.5,
-      gap: theme.spacer * 0.5,
-      borderBottomWidth: 1,
-      borderBottomColor: theme.grays['300'],
-    },
-    brandText: {
-      fontSize: theme.fontSizes.large ?? theme.fontSizeBase * 1.25,
-    },
-    menuContainer: {
-      width: 315,
-      borderRightWidth: 1,
-      borderRightColor: theme.grays['300'],
-    },
-    menuBody: {
-      marginTop: theme.spacer * 0.5,
-      marginBottom: 'auto',
-      gap: theme.spacer * 0.5,
-    },
     menuItem: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -79,26 +58,30 @@ export const Layout: React.FC<React.PropsWithChildren<{
 
   return (
     <React.Fragment>
-      <View style={style.brandContainer}>
-        {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
-        <Text style={style.brandText}>{theme.brandTitle}</Text>
-      </View>
-      <View style={{
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'stretch',
+      <header className='navbar py-2 px-4 border-bottom' style={{
+        backgroundColor: 'white',
+        position: 'sticky',
+        top: 0,
       }}>
-        <View style={style.menuContainer}>
-          <ScrollView>
-            <View style={style.menuBody}>
-                <SideMenu items={menu} menuStyle={style.menuItem} themeColor={themeColor} />
-            </View>
-          </ScrollView>
-        </View>
-        <View style={{ flex: 1 }}>
+        <div className='d-flex flex-row align-items-center'>
+          {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
+          <span className='h2 m-0 ms-2'>{theme.brandTitle}</span>
+        </div>
+      </header>
+      <div className='container-fluid p-0 m-0 row flex-nowrap flex-fill'>
+        <aside className='col-4 col-md-3 col-lg-2 p-0 border-end' style={{
+          overflowY: 'auto',
+          minHeight: '100%',
+          height: 0,
+        }}>
+          <div className='d-flex flex-column'>
+            <SideMenu items={menu} menuStyle={style.menuItem} themeColor={themeColor} />
+          </div>
+        </aside>
+        <main className='d-flex flex-fill'>
           <ErrorBoundary fallback={<ErrorPage />}>{children}</ErrorBoundary>
-        </View>
-      </View>
+        </main>
+      </div>
     </React.Fragment>
   )
 };
