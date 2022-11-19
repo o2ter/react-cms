@@ -44,7 +44,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
   const theme = useTheme();
 
   const _color = theme.color ?? 'primary';
-  const themeColor = shadeColor(theme.colors[_color] ?? _color, 0.4);
+  const themeColor = theme.colors[_color] ?? _color;
 
   const style = React.useMemo(() => StyleSheet.create({
     menuItem: {
