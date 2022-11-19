@@ -25,9 +25,12 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { View, ErrorBoundary } from 'o2ter-ui';
+import { StyleSheet } from 'react-native';
+import { View, Text, shadeColor, ErrorBoundary, ScrollView } from 'o2ter-ui';
 import { SideMenu, MenuItem } from './SideMenu';
 import ErrorPage from '../pages/ErrorPage';
+import { BrandDefaultLogo } from './BrandDefaultLogo';
+import { useTheme } from '../theme';
 
 export { MenuItem };
 
@@ -36,17 +39,68 @@ export const Layout: React.FC<React.PropsWithChildren<{
 }>> = ({
   menu,
   children
-}) => (
-  <View style={{
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'stretch',
-  }}>
-    <SideMenu items={menu} />
-    <View style={{ flex: 1 }}>
-      <ErrorBoundary fallback={<ErrorPage />}>{children}</ErrorBoundary>
-    </View>
-  </View>
-);
+}) => {
+  
+  const theme = useTheme();
+
+  const _color = theme.color ?? 'primary';
+  const themeColor = shadeColor(theme.colors[_color] ?? _color, 0.4);
+
+  const style = React.useMemo(() => StyleSheet.create({
+    brandContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: theme.spacer * 0.5,
+      gap: theme.spacer * 0.5,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.grays['300'],
+    },
+    brandText: {
+      fontSize: theme.fontSizes.large ?? theme.fontSizeBase * 1.25,
+    },
+    menuContainer: {
+      width: 315,
+      borderRightWidth: 1,
+      borderRightColor: theme.grays['300'],
+    },
+    menuBody: {
+      marginTop: theme.spacer * 0.5,
+      marginBottom: 'auto',
+      gap: theme.spacer * 0.5,
+    },
+    menuItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: theme.spacer * 0.5,
+      borderRadius: 8,
+      gap: theme.spacer * 0.5,
+    },
+  }), [theme]);
+
+  return (
+    <React.Fragment>
+      <View style={style.brandContainer}>
+        {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
+        <Text style={style.brandText}>{theme.brandTitle}</Text>
+      </View>
+      <View style={{
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'stretch',
+      }}>
+        <View style={style.menuContainer}>
+          <ScrollView>
+            <View style={style.menuBody}>
+                <SideMenu items={menu} menuStyle={style.menuItem} themeColor={themeColor} />
+            </View>
+          </ScrollView>
+        </View>
+        <View style={{ flex: 1 }}>
+          <ErrorBoundary fallback={<ErrorPage />}>{children}</ErrorBoundary>
+        </View>
+      </View>
+    </React.Fragment>
+  )
+};
 
 export default Layout;

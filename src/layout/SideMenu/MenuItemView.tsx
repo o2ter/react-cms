@@ -68,8 +68,8 @@ export const MenuItemView = ({
   const isActive = active_check(location, link, active, children);
 
   const label = (
-    <View style={[style, isActive ? { backgroundColor: themeColor } : {}]}>
-      <TextStyleProvider style={{ opacity: isActive ? 0.75 : 0.5 }}>
+    <View style={style}>
+      <TextStyleProvider style={isActive ? { color: themeColor } : {}}>
         {icon}
         <Text>{title}</Text>
       </TextStyleProvider>
