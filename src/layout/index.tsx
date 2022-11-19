@@ -69,16 +69,14 @@ export const Layout: React.FC<React.PropsWithChildren<{
         </div>
       </header>
       <div className='container-fluid p-0 m-0 row flex-nowrap flex-fill'>
-        <aside className='col-4 col-md-3 col-lg-2 p-0 border-end' style={{
+        <aside className='d-flex flex-column col-4 col-md-3 col-lg-2 p-0 border-end' style={{
           overflowY: 'auto',
           minHeight: '100%',
           height: 0,
         }}>
-          <div className='d-flex flex-column'>
-            <SideMenu items={menu} menuStyle={style.menuItem} themeColor={themeColor} />
-          </div>
+          <SideMenu items={menu} menuStyle={style.menuItem} themeColor={themeColor} />
         </aside>
-        <main className='d-flex flex-fill'>
+        <main className='d-flex flex-fill p-0'>
           <ErrorBoundary fallback={<ErrorPage />}>{children}</ErrorBoundary>
         </main>
       </div>
