@@ -70,11 +70,11 @@ export const MenuItemView = ({
   const isActive = active_check(location, link, active, children);
 
   const label = (
-    <div className={`d-flex flex-nowrap ps-3 ${section ? 'py-2' : 'py-1'}`} style={{
+    <div className={`d-flex flex-nowrap ps-3 ${section ? 'py-2' : 'py-1'}`} style={section ? {
       borderLeftStyle: 'solid',
       borderLeftWidth: 4,
       borderLeftColor: isActive ? themeColor : 'transparent',
-    }}>
+    } : {}}>
       {icon}
       <span className={section ? 'h5 m-0' : ''} style={isActive ? { color: themeColor } : {}}>{title}</span>
     </div>
