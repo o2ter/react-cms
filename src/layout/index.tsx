@@ -65,7 +65,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
       }}>
         <div className='d-flex flex-row align-items-center'>
           {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
-          <span className='h2 m-0 ms-2'>{theme.brandTitle}</span>
+          <span className='h3 m-0 ms-3'>{theme.brandTitle}</span>
         </div>
       </header>
       <div className='container-fluid p-0 m-0 row flex-nowrap flex-fill'>

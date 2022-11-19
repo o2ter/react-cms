@@ -39,6 +39,7 @@ export type MenuItem = {
 type MenuItemProps = MenuItem & {
   style: StyleProp<ViewStyle>;
   themeColor: string;
+  section?: boolean;
 };
 
 const active_check = (
@@ -61,6 +62,7 @@ export const MenuItemView = ({
   active,
   style,
   themeColor,
+  section = false,
   children,
 }: MenuItemProps) => {
 
@@ -68,23 +70,27 @@ export const MenuItemView = ({
   const isActive = active_check(location, link, active, children);
 
   const label = (
-    <View style={style}>
-      <TextStyleProvider style={isActive ? { color: themeColor } : {}}>
-        {icon}
-        <Text>{title}</Text>
-      </TextStyleProvider>
-    </View>
+    <div className={`d-flex flex-nowrap ps-3 ${section ? 'py-2' : 'py-1'}`} style={{
+      borderLeftStyle: 'solid',
+      borderLeftWidth: 4,
+      borderLeftColor: isActive ? themeColor : 'transparent',
+    }}>
+      {icon}
+      <span className={section ? 'h5 m-0' : ''} style={isActive ? { color: themeColor } : {}}>{title}</span>
+    </div>
   );
 
   return (
     <>
       {_.isString(link) ? <Link to={link} style={{ textDecoration: 'none' }}>{label}</Link> : label}
-      {_.isArray(children) && <List data={children} renderItem={({ item }) => (
-        <MenuItemView
-          style={style}
-          themeColor={themeColor}
-          {...item} />
-      )} />}
+      {_.isArray(children) && <div className='d-flex flex-column ps-3'>
+        <List data={children} renderItem={({ item }) => (
+          <MenuItemView
+            style={style}
+            themeColor={themeColor}
+            {...item} />
+        )} />
+      </div>}
     </>
   );
 }

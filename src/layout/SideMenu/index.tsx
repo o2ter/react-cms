@@ -42,6 +42,7 @@ export const SideMenu: React.FC<{
 }) => (
   <List data={items} renderItem={({ item }) => (
     <MenuItemView
+      section
       style={menuStyle}
       themeColor={themeColor}
       {...item} />
