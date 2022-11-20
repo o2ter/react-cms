@@ -26,7 +26,8 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { View, Text, List, useLocation, TextStyleProvider, Link } from 'o2ter-ui';
+import { List, useLocation, Link } from 'o2ter-ui';
+import { className } from '../../utils';
 
 export type MenuItem = {
   icon: React.ReactNode;
@@ -69,14 +70,23 @@ export const MenuItemView = ({
   const location = useLocation();
   const isActive = active_check(location, link, active, children);
 
+
+
   const label = (
-    <div className={`d-flex flex-nowrap ps-3 text-body ${section ? 'py-2' : 'py-1'}`} style={section ? {
-      borderLeftStyle: 'solid',
-      borderLeftWidth: 4,
-      borderLeftColor: isActive ? themeColor : 'transparent',
-    } : {}}>
+    <div
+      className={className(
+        'd-flex flex-nowrap ps-3',
+        section ? 'py-2' : 'py-1',
+        isActive ? 'text-primary' : 'text-body',
+        _.isString(link) ? 'link-primary' : '',
+      )}
+      style={section ? {
+        borderLeftStyle: 'solid',
+        borderLeftWidth: 4,
+        borderLeftColor: isActive ? themeColor : 'transparent',
+      } : {}}>
       {icon}
-      <span className={section ? 'h5 m-0' : ''} style={isActive ? { color: themeColor } : {}}>{title}</span>
+      <span className={section ? 'h5 m-0' : ''}>{title}</span>
     </div>
   );
 
