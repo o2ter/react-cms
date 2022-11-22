@@ -2313,10 +2313,10 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
-o2ter-ui@^0.0.61:
-  version "0.0.61"
-  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.61.tgz#d033a47bb675b3af0a3f203729ec4649395c1604"
-  integrity sha512-VHh4uuat1rtuUaVQtSyDaOag2iO5O1w1fIUi922dXFUwSgU9loudTaEuvFig5rAH75VRPAAbUUpyEBF/oFxG5g==
+o2ter-ui@^0.0.63:
+  version "0.0.63"
+  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.63.tgz#1e95d85251bcfb8592adf638435bb238e694bbcc"
+  integrity sha512-49Wf2LJuOFPN3+s2KQZvKGQFkFIxgNDLQfzCE6HUDvW+bv+GL2PHi1EK9CCm68Dde1EG7S+ykCrQCHas/5GRsA==
   dependencies:
     "@react-native-picker/picker" ">=2.4.7"
     jsbarcode ">=3.11.5"
@@ -2738,10 +2738,10 @@ strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   dependencies:
     ansi-regex "^5.0.1"
 
-sugax@^1.0.56:
-  version "1.0.56"
-  resolved "https://registry.yarnpkg.com/sugax/-/sugax-1.0.56.tgz#45ede7e2bbe02715189b693dce72f820129b70d0"
-  integrity sha512-MSyQsFOWE1zA8vB25rGWafHAU/7zrzDe7FyBzZhU9czcnUO204qa4N1xGK2TImUodTBfL8LeEGelLzSWPOFVww==
+sugax@^1.0.61:
+  version "1.0.61"
+  resolved "https://registry.yarnpkg.com/sugax/-/sugax-1.0.61.tgz#bf25d3fbb20b906299173a2ebc39fa981d275431"
+  integrity sha512-TpdqtYAce6EYhsuUX2g1E6qdFUILAJKLzFBa6vLj1IVQ9JovZvgNJ1C4IBpH7Gd+7uAd6oE9f4d4rcJSsoPlQQ==
   dependencies:
     axios "^1.1.3"
     lodash ">=4.17.21"
