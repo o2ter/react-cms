@@ -70,8 +70,6 @@ export const MenuItemView = ({
   const location = useLocation();
   const isActive = active_check(location, link, active, children);
 
-
-
   const label = (
     <div
       className={className(
@@ -86,7 +84,7 @@ export const MenuItemView = ({
         borderLeftColor: isActive ? themeColor : 'transparent',
       } : {}}>
       {icon}
-      <span className={section ? 'h5 m-0' : ''}>{title}</span>
+      <span className={section ? 'h6 m-0' : ''}>{title}</span>
     </div>
   );
 
