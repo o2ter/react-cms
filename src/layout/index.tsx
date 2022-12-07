@@ -26,9 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { ErrorBoundary } from 'o2ter-ui';
 import { SideMenu, MenuItem } from './SideMenu';
-import ErrorPage from '../pages/ErrorPage';
 import { BrandDefaultLogo } from './BrandDefaultLogo';
 import { useTheme } from '../theme';
 
@@ -76,9 +74,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
         }}>
           <SideMenu items={menu} menuStyle={style.menuItem} themeColor={themeColor} />
         </aside>
-        <main className='d-flex flex-fill p-0'>
-          <ErrorBoundary fallback={<ErrorPage />}>{children}</ErrorBoundary>
-        </main>
+        <main className='d-flex flex-fill p-0'>{children}</main>
       </div>
     </React.Fragment>
   )
