@@ -37,6 +37,7 @@ import {
 import { Layout, MenuItem } from '../layout';
 import { ThemeProvider, ThemeProviderProps } from '../theme';
 import Navigator from '../components/Navigator';
+import LoginPage from '../pages/LoginPage';
 
 const appProviders = [
   ActivityIndicatorProvider,
@@ -46,21 +47,22 @@ const appProviders = [
 
 export const Dashboard: React.FC<{
   LayoutComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof Layout>>;
-  LoginComponent?: React.ComponentType;
-  logined?: boolean;
+  LoginComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof LoginPage>>;
   pages: ComponentPropsWithoutRef<typeof Route>[];
   menu: MenuItem[];
-} & ThemeProviderProps> = ({
+  logined?: boolean;
+} & ComponentPropsWithoutRef<typeof LoginPage> & ThemeProviderProps> = ({
   LayoutComponent = Layout,
-  LoginComponent,
-  logined = false,
+  LoginComponent = LoginPage,
   pages,
   menu,
+  logined = false,
+  onLogin,
   ...props
 }) => (
   <ThemeProvider {...props}>
     <ProviderChain providers={appProviders}>
-      {!logined && !_.isNil(LoginComponent) ? <LoginComponent /> : (
+      {!logined ? <LoginComponent onLogin={onLogin} /> : (
         <LayoutComponent menu={menu}>
           <Navigator pages={pages} />
         </LayoutComponent>
