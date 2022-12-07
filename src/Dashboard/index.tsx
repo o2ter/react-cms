@@ -46,19 +46,25 @@ const appProviders = [
 
 export const Dashboard: React.FC<{
   LayoutComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof Layout>>;
+  LoginComponent?: React.ComponentType;
+  logined?: boolean;
   pages: ComponentPropsWithoutRef<typeof Route>[];
   menu: MenuItem[];
 } & ThemeProviderProps> = ({
   LayoutComponent = Layout,
+  LoginComponent,
+  logined = false,
   pages,
   menu,
   ...props
 }) => (
   <ThemeProvider {...props}>
     <ProviderChain providers={appProviders}>
-      <LayoutComponent menu={menu}>
-        <Navigator pages={pages} />
-      </LayoutComponent>
+      {!logined && !_.isNil(LoginComponent) ? <LoginComponent /> : (
+        <LayoutComponent menu={menu}>
+          <Navigator pages={pages} />
+        </LayoutComponent>
+      )}
     </ProviderChain>
   </ThemeProvider>
 )
