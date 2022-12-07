@@ -45,18 +45,20 @@ const appProviders = [
 ]
 
 export const Dashboard: React.FC<{
+  LayoutComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof Layout>>;
   pages: ComponentPropsWithoutRef<typeof Route>[];
   menu: MenuItem[];
 } & ThemeProviderProps> = ({
+  LayoutComponent = Layout,
   pages,
   menu,
   ...props
 }) => (
   <ThemeProvider {...props}>
     <ProviderChain providers={appProviders}>
-      <Layout menu={menu}>
+      <LayoutComponent menu={menu}>
         <Navigator pages={pages} />
-      </Layout>
+      </LayoutComponent>
     </ProviderChain>
   </ThemeProvider>
 )
