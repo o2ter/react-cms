@@ -7,8 +7,8 @@
 import _ from 'lodash';
 import React from 'react';
 import { ErrorBoundary, Navigator as _Navigator, Route } from 'o2ter-ui';
-import NotFound from '../../pages/NotFound';
-import ErrorPage from '../../pages/ErrorPage';
+import NotFound from '../pages/NotFound';
+import ErrorPage from '../pages/ErrorPage';
 
 export const Navigator = ({ pages }) => {
 
