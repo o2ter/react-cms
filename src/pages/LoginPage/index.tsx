@@ -64,7 +64,7 @@ export const LoginPage: React.FC<{
           </div>
 
           <div className='pt-3'>
-            <Form.Button title='Login' variant='primary' action='submit' />
+            <Form.Button title={localization.string('login')} variant='primary' action='submit' />
           </div>
 
         </Form>

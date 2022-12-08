@@ -5,5 +5,6 @@ export default LocalizationStrings({
   "en": {
     "username": "Username",
     "password": "Password",
+    "login": "Login",
   }
 });
