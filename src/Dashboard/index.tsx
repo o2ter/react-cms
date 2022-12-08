@@ -27,23 +27,10 @@ import _ from 'lodash';
 import React, { ComponentPropsWithoutRef } from 'react';
 import { Route } from 'o2ter-ui';
 
-import {
-  ActivityIndicatorProvider,
-  ToastProvider,
-  ModalProvider,
-  ProviderChain,
-} from '../components';
-
 import { Layout, MenuItem } from '../layout';
 import { ThemeProvider, ThemeProviderProps } from '../theme';
-import Navigator from '../components/Navigator';
+import Navigator from '../Navigator';
 import LoginPage from '../pages/LoginPage';
-
-const appProviders = [
-  ActivityIndicatorProvider,
-  ToastProvider,
-  ModalProvider,
-]
 
 export const Dashboard: React.FC<{
   LayoutComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof Layout>>;
@@ -61,12 +48,10 @@ export const Dashboard: React.FC<{
   ...props
 }) => (
   <ThemeProvider {...props}>
-    <ProviderChain providers={appProviders}>
-      {!logined ? <LoginComponent onLogin={onLogin} /> : (
-        <LayoutComponent menu={menu}>
-          <Navigator pages={pages} />
-        </LayoutComponent>
-      )}
-    </ProviderChain>
+    {!logined ? <LoginComponent onLogin={onLogin} /> : (
+      <LayoutComponent menu={menu}>
+        <Navigator pages={pages} />
+      </LayoutComponent>
+    )}
   </ThemeProvider>
 )
