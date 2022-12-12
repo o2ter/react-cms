@@ -26,16 +26,16 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { SideMenu, MenuItem } from './SideMenu';
+import { SideMenu, PageItem } from './SideMenu';
 import { BrandDefaultLogo } from './BrandDefaultLogo';
 import { useTheme } from '../theme';
 
-export { MenuItem };
+export { PageItem };
 
 export const Layout: React.FC<React.PropsWithChildren<{
-  menu: MenuItem[];
+  pages: PageItem[];
 }>> = ({
-  menu,
+  pages,
   children
 }) => {
 
@@ -72,7 +72,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
           minHeight: '100%',
           height: 0,
         }}>
-          <SideMenu items={menu} menuStyle={style.menuItem} themeColor={themeColor} />
+          <SideMenu pages={pages} menuStyle={style.menuItem} themeColor={themeColor} />
         </aside>
         <main className='d-flex flex-fill p-0'>{children}</main>
       </div>

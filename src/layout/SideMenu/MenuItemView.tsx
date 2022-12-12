@@ -24,20 +24,22 @@
 //
 
 import _ from 'lodash';
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { List, useLocation, Link } from 'o2ter-ui';
+import { List, useLocation, Link, Route } from 'o2ter-ui';
 import { className } from '../../utils';
 
-export type MenuItem = {
-  icon: React.ReactNode;
+type MenuBase = {
+  icon?: React.ReactNode;
   title: string;
-  link?: string;
+  path?: string;
   active?: (location: ReturnType<typeof useLocation>) => boolean;
-  children?: MenuItem[];
+  children?: PageItem[];
 };
 
-type MenuItemProps = MenuItem & {
+export type PageItem = ComponentPropsWithoutRef<typeof Route> & MenuBase;
+
+type MenuItemProps = MenuBase & {
   style: StyleProp<ViewStyle>;
   themeColor: string;
   section?: boolean;
@@ -47,19 +49,19 @@ const active_check = (
   location: ReturnType<typeof useLocation>,
   link?: string,
   active?: (location: ReturnType<typeof useLocation>) => boolean,
-  children?: MenuItem[],
+  children?: PageItem[],
 ): boolean => {
 
   const _active = active ?? ((l) => _.isString(link) && l.pathname === link);
   if (_active(location)) return true;
 
-  return !_.isNil(_.find(children, (x) => active_check(location, x.link, x.active, x.children)));
+  return !_.isNil(_.find(children, (x) => active_check(location, x.path, x.active, x.children)));
 }
 
 export const MenuItemView = ({
   icon,
   title,
-  link,
+  path,
   active,
   style,
   themeColor,
@@ -68,7 +70,7 @@ export const MenuItemView = ({
 }: MenuItemProps) => {
 
   const location = useLocation();
-  const isActive = active_check(location, link, active, children);
+  const isActive = active_check(location, path, active, children);
 
   const label = (
     <div
@@ -76,7 +78,7 @@ export const MenuItemView = ({
         'd-flex flex-nowrap ps-3',
         section ? 'py-2' : 'py-1',
         isActive ? 'text-primary' : 'text-body',
-        _.isString(link) ? 'link-primary' : '',
+        _.isString(path) ? 'link-primary' : '',
       )}
       style={section ? {
         borderLeftStyle: 'solid',
@@ -90,7 +92,7 @@ export const MenuItemView = ({
 
   return (
     <>
-      {_.isString(link) ? <Link to={link} style={{ textDecoration: 'none' }}>{label}</Link> : label}
+      {_.isString(path) ? <Link to={path} style={{ textDecoration: 'none' }}>{label}</Link> : label}
       {_.isArray(children) && <div className='d-flex flex-column ps-3'>
         <List data={children} renderItem={({ item }) => (
           <MenuItemView

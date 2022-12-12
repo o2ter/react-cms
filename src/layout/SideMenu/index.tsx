@@ -27,20 +27,20 @@ import _ from 'lodash';
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import { List } from 'o2ter-ui';
-import { MenuItem, MenuItemView } from './MenuItemView';
+import { PageItem, MenuItemView } from './MenuItemView';
 
-export { MenuItem };
+export { PageItem };
 
 export const SideMenu: React.FC<{
-  items: MenuItem[];
+  pages: PageItem[];
   themeColor: string;
   menuStyle: StyleProp<ViewStyle>;
 }> = ({
-  items,
+  pages,
   themeColor,
   menuStyle,
 }) => (
-  <List data={items} renderItem={({ item }) => (
+  <List data={pages} renderItem={({ item }) => (
     <MenuItemView
       section
       style={menuStyle}

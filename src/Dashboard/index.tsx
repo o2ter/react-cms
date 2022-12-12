@@ -25,9 +25,7 @@
 
 import _ from 'lodash';
 import React, { ComponentPropsWithoutRef } from 'react';
-import { Route } from 'o2ter-ui';
-
-import { Layout, MenuItem } from '../layout';
+import { Layout, PageItem } from '../layout';
 import { ThemeProvider, ThemeProviderProps } from '../theme';
 import Navigator from '../Navigator';
 import LoginPage from '../pages/LoginPage';
@@ -35,23 +33,29 @@ import LoginPage from '../pages/LoginPage';
 export const Dashboard: React.FC<{
   LayoutComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof Layout>>;
   LoginComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof LoginPage>>;
-  pages: ComponentPropsWithoutRef<typeof Route>[];
-  menu: MenuItem[];
+  pages: PageItem[];
   logined?: boolean;
 } & ComponentPropsWithoutRef<typeof LoginPage> & ThemeProviderProps> = ({
   LayoutComponent = Layout,
   LoginComponent = LoginPage,
   pages,
-  menu,
   logined = false,
   onLogin,
   ...props
-}) => (
-  <ThemeProvider {...props}>
-    {!logined ? <LoginComponent onLogin={onLogin} /> : (
-      <LayoutComponent menu={menu}>
-        <Navigator pages={pages} />
-      </LayoutComponent>
-    )}
-  </ThemeProvider>
-)
+}) => {
+
+  const _pages = React.useMemo(
+    () => _.flatMapDeep(pages, p => p.children ? [p, ...p.children] : p).filter(x => !_.isNil(x.component)),
+    [pages]
+  );
+
+  return (
+    <ThemeProvider {...props}>
+      {!logined ? <LoginComponent onLogin={onLogin} /> : (
+        <LayoutComponent pages={pages}>
+          <Navigator pages={_pages} />
+        </LayoutComponent>
+      )}
+    </ThemeProvider>
+  );
+}
