@@ -72,7 +72,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
           <span className='h3 m-0 ms-3'>{theme.brandTitle}</span>
         </div>
       </header>
-      <div className='container-fluid p-0 m-0 row flex-nowrap flex-fill' style={{ marginTop: headerHeight }}>
+      <div className='container-fluid p-0 mx-0 mb-0 row flex-nowrap flex-fill' style={{ marginTop: headerHeight }}>
         <aside className='d-flex flex-column col-4 col-md-3 col-lg-2 p-0 border-end' style={{
           overflowY: 'auto',
           minHeight: '100%',
