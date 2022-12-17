@@ -54,19 +54,25 @@ export const Layout: React.FC<React.PropsWithChildren<{
     },
   }), [theme]);
 
+  const headerRef = React.useRef<HTMLElement>(null);
+  const [headerHeight, setHeaderHeight] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!headerRef.current) return;
+    const observer = new ResizeObserver((entries) => setHeaderHeight(entries[0].target.clientHeight));
+    observer.observe(headerRef.current);
+    return () => { observer.disconnect(); }
+  }, [headerRef.current]);
+
   return (
     <React.Fragment>
-      <header className='navbar py-2 px-4 border-bottom' style={{
-        backgroundColor: 'white',
-        position: 'sticky',
-        top: 0,
-      }}>
+      <header ref={headerRef} className='navbar py-2 px-4 border-bottom bg-white fixed-top'>
         <div className='d-flex flex-row align-items-center'>
           {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
           <span className='h3 m-0 ms-3'>{theme.brandTitle}</span>
         </div>
       </header>
-      <div className='container-fluid p-0 m-0 row flex-nowrap flex-fill'>
+      <div className='container-fluid p-0 m-0 row flex-nowrap flex-fill' style={{ marginTop: headerHeight }}>
         <aside className='d-flex flex-column col-4 col-md-3 col-lg-2 p-0 border-end' style={{
           overflowY: 'auto',
           minHeight: '100%',
