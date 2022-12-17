@@ -40,7 +40,7 @@ export const SideMenu: React.FC<{
   themeColor,
   menuStyle,
 }) => (
-  <List data={pages} renderItem={({ item }) => (
+  <List data={_.filter(pages, x => !x.hidden)} renderItem={({ item }) => (
     <MenuItemView
       section
       style={menuStyle}

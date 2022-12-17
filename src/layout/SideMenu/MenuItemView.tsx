@@ -37,7 +37,9 @@ type MenuBase = {
   children?: PageItem[];
 };
 
-export type PageItem = ComponentPropsWithoutRef<typeof Route> & MenuBase;
+export type PageItem = ComponentPropsWithoutRef<typeof Route> & MenuBase & {
+  hidden?: Boolean;
+};
 
 type MenuItemProps = MenuBase & {
   style: StyleProp<ViewStyle>;
@@ -94,7 +96,7 @@ export const MenuItemView = ({
     <>
       {_.isString(path) ? <Link to={path} style={{ textDecoration: 'none' }}>{label}</Link> : label}
       {_.isArray(children) && <div className='d-flex flex-column ps-3'>
-        <List data={children} renderItem={({ item }) => (
+        <List data={_.filter(children, x => !x.hidden)} renderItem={({ item }) => (
           <MenuItemView
             style={style}
             themeColor={themeColor}
