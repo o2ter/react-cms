@@ -25,6 +25,7 @@
 
 import _ from 'lodash';
 import React, { ComponentPropsWithoutRef } from 'react';
+import { useToast } from 'o2ter-ui';
 import { Layout, PageItem } from '../layout';
 import { ThemeProvider, ThemeProviderProps } from '../theme';
 import Navigator from '../Navigator';
@@ -49,9 +50,18 @@ export const Dashboard: React.FC<{
     [pages]
   );
 
+  const { showError } = useToast();
+  const _showError = React.useCallback((resolve: any) => {
+    (async () => {
+      try { await resolve; } catch (e) { showError(e as Error); }
+    })();
+  }, [showError]);
+
+  const _onLogin = React.useCallback((user: { username: string; password: string; }) => void _showError(onLogin(user)), [onLogin, _showError]);
+
   return (
     <ThemeProvider {...props}>
-      {!logined ? <LoginComponent onLogin={onLogin} /> : (
+      {!logined ? <LoginComponent onLogin={_onLogin} /> : (
         <LayoutComponent pages={pages}>
           <Navigator pages={_pages} />
         </LayoutComponent>

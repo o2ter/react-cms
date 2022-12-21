@@ -61,7 +61,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
     if (!headerRef.current) return;
     const observer = new ResizeObserver((entries) => setHeaderHeight(entries[0].target.clientHeight));
     observer.observe(headerRef.current);
-    return () => { observer.disconnect(); }
+    return () => void observer.disconnect();
   }, [headerRef.current]);
 
   return (
