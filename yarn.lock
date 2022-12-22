@@ -1068,15 +1068,37 @@
     events ">=3.3.0"
     lodash ">=4.17.21"
 
-"@react-native-picker/picker@>=2.4.7":
-  version "2.4.7"
-  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.7.tgz#7b7c2d3fe537cd82ed67c9c7f26039553e194c16"
-  integrity sha512-SZewIUpkHIA1VzDdetXLpZUfwVOR4p+CRGguo8dGt/33nh9Bhkpt0Ke6KazZ6agbDGyBjlVEAqzkcLXoRBwOJQ==
+"@o2ter/react-ui@^0.0.94":
+  version "0.0.94"
+  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.94.tgz#1954c6ed5998f3948b0735c642f9b0eb1bfb3196"
+  integrity sha512-tAhMITeRezHMb4FrXZ3X3A9SPzh01itLkNd0+ionx00O6pcThubo8I94foBU2nSCUrKOgGSMWIn20uZ+xhep7g==
+  dependencies:
+    "@react-native-picker/picker" ">=2.4.7"
+    jsbarcode ">=3.11.5"
+    lodash ">=4.17.21"
+    lottie-ios ">=3.4.4"
+    lottie-react-native ">=5.1.4"
+    lottie-web ">=5.9.6"
+    luxon ">=3.0.4"
+    normalize-css-color ">=1.0.2"
+    qrcode ">=1.5.1"
+    react-dom ">=18.2.0"
+    react-native-fast-image ">=8.6.1"
+    react-native-render-html ">=6.3.4"
+    react-native-safe-area-context ">=4.4.1"
+    react-native-svg ">=13.4.0"
+    react-native-vector-icons ">=9.2.0"
+    react-router-dom ">=6.4.2"
 
-"@remix-run/router@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.0.2.tgz#1c17eadb2fa77f80a796ad5ea9bf108e6993ef06"
-  integrity sha512-GRSOFhJzjGN+d4sKHTMSvNeUPoZiDHWmRnXfzaxrqe7dE/Nzlc8BiMSJdLDESZlndM7jIUrZ/F4yWqVYlI0rwQ==
+"@react-native-picker/picker@>=2.4.7":
+  version "2.4.8"
+  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.8.tgz#a1a21f3d6ecadedbc3f0b691a444ddd7baa081f8"
+  integrity sha512-5NQ5XPo1B03YNqKFrV6h9L3CQaHlB80wd4ETHUEABRP2iLh7FHLVObX2GfziD+K/VJb8G4KZcZ23NFBFP1f7bg==
+
+"@remix-run/router@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.2.0.tgz#54eff8306938b64c521f4a9ed313d33a91ef019a"
+  integrity sha512-GO82KYYTWPRCgdNtnheaZG3LcViUlxRFlHM7ykh7N+ufoXi6PVIHoP+9RUG/vuzl2hr9i/h6EA1Eq+2HpqJ0gQ==
 
 "@rollup/plugin-babel@^6.0.0":
   version "6.0.0"
@@ -1539,9 +1561,9 @@ camelcase@^5.0.0:
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 camelize@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
-  integrity sha512-W2lPwkBkMZwFlPCXhIlYgxu+7gC/NUlCtdK652DAJ1JdgV0sTrvuPFshNPrFa1TY2JOkLhgdeEBplB4ezEa+xg==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.1.tgz#89b7e16884056331a35d6b5ad064332c91daa6c3"
+  integrity sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==
 
 caniuse-lite@^1.0.30001400:
   version "1.0.30001418"
@@ -2216,9 +2238,9 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
     js-tokens "^3.0.0 || ^4.0.0"
 
 lottie-ios@>=3.4.4:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-3.5.0.tgz#ed909dffbf1125a180df1614cf02aadee43b7840"
-  integrity sha512-DM6BYLhHTzvUsK89AjY+K9RwVGkOBwbH/iytjyZUmFbXz8DVsoPEyy+c7L5NZmVouZHvLnOQp6NaYTkwMo+iOg==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-4.0.1.tgz#7871a0f677ab25d9181bf3dbc918a2b049344f7b"
+  integrity sha512-Oj+L19EOfSqopdfkJQoX6g881Dz/NTieOgF4J0+8gE5uxvy3bA4njEGH+ovtlkHAtk3kdNh7tTRPY4UeggIZIQ==
 
 lottie-react-native@>=5.1.4:
   version "5.1.4"
@@ -2229,14 +2251,14 @@ lottie-react-native@>=5.1.4:
     react-native-safe-modules "^1.0.3"
 
 lottie-web@>=5.9.6:
-  version "5.9.6"
-  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.9.6.tgz#62ae68563355d3e04aa75d53dec3dd4bea0e57c9"
-  integrity sha512-JFs7KsHwflugH5qIXBpB4905yC1Sub2MZWtl/elvO/QC6qj1ApqbUZJyjzJseJUtVpgiDaXQLjBlIJGS7UUUXA==
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.10.0.tgz#72563f22efdcf2b8f7e8359743514930ebaf5f8c"
+  integrity sha512-q2hfqKrGXNkwjSSZjKxf3fWMi0e3ZBc03qBkVWoGbwUJ7BcG+9YXjMPtmmhitzk8Nc6VQ5PRnh9yInPdfq0PZg==
 
 luxon@>=3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.0.4.tgz#d179e4e9f05e092241e7044f64aaa54796b03929"
-  integrity sha512-aV48rGUwP/Vydn8HT+5cdr26YYQiUZ42NM6ToMoaGKwYfWbfLeRkEu1wXWMHBZT6+KyLfcbbtVcoQFCbbPjKlw==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.1.1.tgz#b492c645b2474fb86f3bd3283213846b99c32c1e"
+  integrity sha512-Ah6DloGmvseB/pX1cAmjbFvyU/pKuwQMQqz7d0yvuDlVYLTs2WeDHQMpC8tGjm1da+BriHROW/OEIT/KfYg6xw==
 
 magic-string@^0.26.4, magic-string@^0.26.6:
   version "0.26.7"
@@ -2312,28 +2334,6 @@ nth-check@^2.0.1:
   integrity sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==
   dependencies:
     boolbase "^1.0.0"
-
-o2ter-ui@^0.0.93:
-  version "0.0.93"
-  resolved "https://registry.yarnpkg.com/o2ter-ui/-/o2ter-ui-0.0.93.tgz#a1b34e5a1d32f0309220e04cf57d7743ed2dce7b"
-  integrity sha512-1y7qogwVLAEKgqe/ljXWZ4X3cJEdO6KXv/6cP0qApcWqdOaDoSCoFvIiZ4RifQMMT0+WC1zv/eInRYi/y2P2Bw==
-  dependencies:
-    "@react-native-picker/picker" ">=2.4.7"
-    jsbarcode ">=3.11.5"
-    lodash ">=4.17.21"
-    lottie-ios ">=3.4.4"
-    lottie-react-native ">=5.1.4"
-    lottie-web ">=5.9.6"
-    luxon ">=3.0.4"
-    normalize-css-color ">=1.0.2"
-    qrcode ">=1.5.1"
-    react-dom ">=18.2.0"
-    react-native-fast-image ">=8.6.1"
-    react-native-render-html ">=6.3.4"
-    react-native-safe-area-context ">=4.4.1"
-    react-native-svg ">=13.4.0"
-    react-native-vector-icons ">=9.2.0"
-    react-router-dom ">=6.4.2"
 
 object-assign@^4.1.1:
   version "4.1.1"
@@ -2473,9 +2473,9 @@ react-is@^16.13.1:
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
 react-native-fast-image@>=8.6.1:
-  version "8.6.1"
-  resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.6.1.tgz#6a3a11b8ebc7629919265d33a420a04d13c897e0"
-  integrity sha512-ILuP7EuakqHNzTr8ZbumhuxG4tE/wGQ66z4nEEuzc0FlqY6rYaPsnq/UD2ahoyFj6QP1WvA2RIK3odib+VcqWg==
+  version "8.6.3"
+  resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.6.3.tgz#6edc3f9190092a909d636d93eecbcc54a8822255"
+  integrity sha512-Sdw4ESidXCXOmQ9EcYguNY2swyoWmx53kym2zRsvi+VeFCHEdkO+WG1DK+6W81juot40bbfLNhkc63QnWtesNg==
 
 react-native-render-html@>=6.3.4:
   version "6.3.4"
@@ -2505,9 +2505,9 @@ react-native-safe-modules@^1.0.3:
     dedent "^0.6.0"
 
 react-native-svg@>=13.4.0:
-  version "13.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-13.4.0.tgz#82399ba0956c454144618aa581e2d748dd3f010a"
-  integrity sha512-B3TwK+H0+JuRhYPzF21AgqMt4fjhCwDZ9QUtwNstT5XcslJBXC0FoTkdZo8IEb1Sv4suSqhZwlAY6lwOv3tHag==
+  version "13.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-13.6.0.tgz#46e95a44aabbd778db7c46d8a1047da376b28058"
+  integrity sha512-1wjHCMJ8siyZbDZ0MX5wM+Jr7YOkb6GADn4/Z+/u1UwJX8WfjarypxDF3UO1ugMHa+7qor39oY+URMcrgPpiww==
   dependencies:
     css-select "^5.1.0"
     css-tree "^1.1.3"
@@ -2521,19 +2521,19 @@ react-native-vector-icons@>=9.2.0:
     yargs "^16.1.1"
 
 react-router-dom@>=6.4.2:
-  version "6.4.2"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.4.2.tgz#115b37d501d6d8ac870683694978c51c43e6c0d2"
-  integrity sha512-yM1kjoTkpfjgczPrcyWrp+OuQMyB1WleICiiGfstnQYo/S8hPEEnVjr/RdmlH6yKK4Tnj1UGXFSa7uwAtmDoLQ==
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.6.0.tgz#ad20b37b69e9fe7c6389663a0767ba40a19f71fe"
+  integrity sha512-qC4jnvpfCPKVle1mKLD75IvZLcbVJyFMlSn16WY9ZiOed3dgSmqhslCf/u3tmSccWOujkdsT/OwGq12bELmvjg==
   dependencies:
-    "@remix-run/router" "1.0.2"
-    react-router "6.4.2"
+    "@remix-run/router" "1.2.0"
+    react-router "6.6.0"
 
-react-router@6.4.2:
-  version "6.4.2"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.4.2.tgz#300628ee9ed81b8ef1597b5cb98b474efe9779b8"
-  integrity sha512-Rb0BAX9KHhVzT1OKhMvCDMw776aTYM0DtkxqUBP8dNBom3mPXlfNs76JNGK8wKJ1IZEY1+WGj+cvZxHVk/GiKw==
+react-router@6.6.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.6.0.tgz#9ae27cfc6bf7f2b28e1f028fe01fdbec96a3a41d"
+  integrity sha512-+VPfCIaFbkW7BAiB/2oeprxKAt1KLbl+zXZ10CXOYezKWgBmTKyh8XjI53eLqY5kd7uY+V4rh3UW44FclwUU+Q==
   dependencies:
-    "@remix-run/router" "1.0.2"
+    "@remix-run/router" "1.2.0"
 
 readdirp@~3.6.0:
   version "3.6.0"
