@@ -25,7 +25,7 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { useTheme as _useTheme } from 'o2ter-ui';
+import { useTheme as _useTheme } from '@o2ter/react-ui';
 
 export type ThemeProviderProps = {
   color?: string;

@@ -6,7 +6,7 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { ErrorBoundary, Navigator as _Navigator, Route } from 'o2ter-ui';
+import { ErrorBoundary, Navigator as _Navigator, Route } from '@o2ter/react-ui';
 import NotFound from '../pages/NotFound';
 import ErrorPage from '../pages/ErrorPage';
 

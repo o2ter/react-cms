@@ -25,7 +25,7 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { Text, View } from 'o2ter-ui';
+import { Text, View } from '@o2ter/react-ui';
 
 import Localization from '../../i18n/pages/NotFound';
 

@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React, { ComponentPropsWithoutRef } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { List, useLocation, Link, Route } from 'o2ter-ui';
+import { List, useLocation, Link, Route } from '@o2ter/react-ui';
 import { className } from '../../utils';
 
 type MenuBase = {

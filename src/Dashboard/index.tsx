@@ -25,7 +25,7 @@
 
 import _ from 'lodash';
 import React, { ComponentPropsWithoutRef } from 'react';
-import { useToast } from 'o2ter-ui';
+import { useToast } from '@o2ter/react-ui';
 import { Layout, PageItem } from '../layout';
 import { ThemeProvider, ThemeProviderProps } from '../theme';
 import Navigator from '../Navigator';

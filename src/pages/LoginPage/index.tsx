@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { string } from 'sugax';
-import { Form, shiftColor } from 'o2ter-ui';
+import { Form, shiftColor } from '@o2ter/react-ui';
 import { useTheme } from '../../theme';
 
 import Localization from '../../i18n/pages/LoginPage';

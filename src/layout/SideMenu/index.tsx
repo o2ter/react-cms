@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { List } from 'o2ter-ui';
+import { List } from '@o2ter/react-ui';
 import { PageItem, MenuItemView } from './MenuItemView';
 
 export { PageItem };
