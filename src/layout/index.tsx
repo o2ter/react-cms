@@ -80,7 +80,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
         }}>
           <SideMenu pages={pages} menuStyle={style.menuItem} themeColor={themeColor} />
         </aside>
-        <main className='d-flex flex-fill p-0'>{children}</main>
+        <main className='d-flex flex-fill p-0 overflow-auto'>{children}</main>
       </div>
     </React.Fragment>
   )
