@@ -51,13 +51,13 @@ export const Dashboard: React.FC<{
   );
 
   const { showError } = useToast();
-  const _showError = React.useCallback((resolve: any) => {
+  const _showError = React.useCallback((resolve: () => any) => {
     (async () => {
-      try { await resolve; } catch (e) { showError(e as Error); }
+      try { await resolve(); } catch (e) { showError(e as Error); }
     })();
   }, [showError]);
 
-  const _onLogin = React.useCallback((user: { username: string; password: string; }) => void _showError(onLogin(user)), [onLogin, _showError]);
+  const _onLogin = React.useCallback((user: { username: string; password: string; }) => void _showError(() => onLogin(user)), [onLogin, _showError]);
 
   return (
     <ThemeProvider {...props}>
