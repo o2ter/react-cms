@@ -96,6 +96,7 @@ export const MenuItemView = ({
         <TextStyleProvider style={{ color: 'inherit', fontSize: theme.fontSizeBase }}>{icon}</TextStyleProvider>
       )}
       <span className={className(
+        'my-0',
         section ? 'h6' : '',
         icon ? 'ms-1' : '',
       )}>{title}</span>
