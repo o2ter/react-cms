@@ -25,14 +25,16 @@
 
 import _ from 'lodash';
 import React, { ComponentPropsWithoutRef } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
-import { List, useLocation, Link, Route } from '@o2ter/react-ui';
+import { Pressable, StyleProp, ViewStyle } from 'react-native';
+import { List, useLocation, Link, Route, TextStyleProvider } from '@o2ter/react-ui';
 import { className } from '../../utils';
+import { useTheme } from '../../theme';
 
 type MenuBase = {
   icon?: React.ReactNode;
   title: string;
   path?: string;
+  onPress?: () => void;
   active?: (location: ReturnType<typeof useLocation>) => boolean;
   children?: PageItem[];
 };
@@ -64,6 +66,7 @@ export const MenuItemView = ({
   icon,
   title,
   path,
+  onPress,
   active,
   style,
   themeColor,
@@ -74,27 +77,44 @@ export const MenuItemView = ({
   const location = useLocation();
   const isActive = active_check(location, path, active, children);
 
-  const label = (
+  const theme = useTheme()
+
+  let label = (
     <div
       className={className(
         'd-flex flex-nowrap ps-3',
         section ? 'py-2' : 'py-1',
         isActive ? 'text-primary' : 'text-body',
-        _.isString(path) ? 'link-primary' : '',
+        _.isFunction(onPress) || _.isString(path) ? 'link-primary' : '',
       )}
       style={section ? {
         borderLeftStyle: 'solid',
         borderLeftWidth: 4,
         borderLeftColor: isActive ? themeColor : 'transparent',
       } : {}}>
-      {icon}
-      <span className={section ? 'h6 m-0' : ''}>{title}</span>
+      {icon && (
+        <TextStyleProvider style={{ color: 'inherit', fontSize: theme.fontSizeBase }}>{icon}</TextStyleProvider>
+      )}
+      <span className={className(
+        section ? 'h6' : '',
+        icon ? 'ms-1' : '',
+      )}>{title}</span>
     </div>
   );
 
+  if (_.isFunction(onPress)) {
+    label = (
+      <Pressable onPress={onPress}>{label}</Pressable>
+    );
+  } else if (_.isString(path)) {
+    label = (
+      <Link to={path} style={{ textDecoration: 'none' }}>{label}</Link>
+    );
+  }
+
   return (
     <>
-      {_.isString(path) ? <Link to={path} style={{ textDecoration: 'none' }}>{label}</Link> : label}
+      {label}
       {_.isArray(children) && <div className='d-flex flex-column ps-3'>
         <List data={_.filter(children, x => !x.hidden)} renderItem={({ item }) => (
           <MenuItemView
