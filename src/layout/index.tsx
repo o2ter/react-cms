@@ -25,19 +25,26 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import { SideMenu, PageItem } from './SideMenu';
 import { BrandDefaultLogo } from './BrandDefaultLogo';
 import { useTheme } from '../theme';
+import { Icon, TextStyleProvider } from '@o2ter/react-ui';
+
+import Localization from '../i18n/layout/SideMenu';
 
 export { PageItem };
 
 export const Layout: React.FC<React.PropsWithChildren<{
   pages: PageItem[];
+  onLogout?: () => void;
 }>> = ({
   pages,
+  onLogout,
   children
 }) => {
+
+  const localization = Localization.useLocalize();
 
   const theme = useTheme();
 
@@ -78,7 +85,26 @@ export const Layout: React.FC<React.PropsWithChildren<{
           minHeight: '100%',
           height: 0,
         }}>
-          <SideMenu pages={pages} menuStyle={style.menuItem} themeColor={themeColor} />
+          <div className='position-fixed start-0 bottom-0' style={{
+            width: 'inherit',
+            top: headerHeight,
+          }}>
+            <div className='d-flex flex-column position-absolute top-0 start-0 bottom-0 end-0'>
+              <div style={{ flex: 1, overflowY: 'auto' }}>
+                <SideMenu pages={pages} menuStyle={style.menuItem} themeColor={themeColor} />
+              </div>
+              {_.isFunction(onLogout) && (
+                <Pressable onPress={onLogout}>
+                  <div className='d-flex flex-nowrap ps-3 py-2 text-body link-primary'>
+                    <TextStyleProvider style={{ color: 'inherit', fontSize: theme.fontSizeBase }}>
+                      <Icon icon='MaterialIcons' name='logout' />
+                    </TextStyleProvider>
+                    <span className='my-0 h6 ms-1'>{localization.string('logout')}</span>
+                  </div>
+                </Pressable>
+              )}
+            </div>
+          </div>
         </aside>
         <main className='d-flex flex-fill p-0 overflow-auto'>{children}</main>
       </div>

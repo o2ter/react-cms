@@ -34,14 +34,14 @@ import LoginPage from '../pages/LoginPage';
 export const Dashboard: React.FC<{
   LayoutComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof Layout>>;
   LoginComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof LoginPage>>;
-  pages: PageItem[];
   logined?: boolean;
-} & ComponentPropsWithoutRef<typeof LoginPage> & ThemeProviderProps> = ({
+} & ComponentPropsWithoutRef<typeof LoginPage> & ComponentPropsWithoutRef<typeof Layout> & ThemeProviderProps> = ({
   LayoutComponent = Layout,
   LoginComponent = LoginPage,
   pages,
   logined = false,
   onLogin,
+  onLogout,
   ...props
 }) => {
 
@@ -62,7 +62,7 @@ export const Dashboard: React.FC<{
   return (
     <ThemeProvider {...props}>
       {!logined ? <LoginComponent onLogin={_onLogin} /> : (
-        <LayoutComponent pages={pages}>
+        <LayoutComponent pages={pages} onLogout={onLogout}>
           <Navigator pages={_pages} />
         </LayoutComponent>
       )}
