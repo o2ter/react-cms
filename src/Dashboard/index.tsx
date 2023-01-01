@@ -39,6 +39,7 @@ export const Dashboard: React.FC<{
   LayoutComponent = Layout,
   LoginComponent = LoginPage,
   pages,
+  locales,
   logined = false,
   onLogin,
   onLogout,
@@ -62,7 +63,7 @@ export const Dashboard: React.FC<{
   return (
     <ThemeProvider {...props}>
       {!logined ? <LoginComponent onLogin={_onLogin} /> : (
-        <LayoutComponent pages={pages} onLogout={onLogout}>
+        <LayoutComponent pages={pages} locales={locales} onLogout={onLogout}>
           <Navigator pages={_pages} />
         </LayoutComponent>
       )}

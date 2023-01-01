@@ -32,18 +32,22 @@ import { useTheme } from '../theme';
 import { Icon, TextStyleProvider } from '@o2ter/react-ui';
 
 import Localization from '../i18n/layout/SideMenu';
+import { setPreferredLocale, useLocalize } from '@o2ter/i18n';
 
 export { PageItem };
 
 export const Layout: React.FC<React.PropsWithChildren<{
   pages: PageItem[];
   onLogout?: () => void;
+  locales?: { locale: string; label: string; }[]
 }>> = ({
   pages,
   onLogout,
+  locales = [],
   children
 }) => {
 
+  const id = React.useId();
   const localization = Localization.useLocalize();
 
   const theme = useTheme();
@@ -64,6 +68,8 @@ export const Layout: React.FC<React.PropsWithChildren<{
   const headerRef = React.useRef<HTMLElement>(null);
   const [headerHeight, setHeaderHeight] = React.useState(0);
 
+  const currentLocale = useLocalize(_.fromPairs(_.map(locales, ({ locale }) => [locale, locale])));
+
   React.useEffect(() => {
     if (!headerRef.current) return;
     const observer = new ResizeObserver((entries) => setHeaderHeight(entries[0].target.clientHeight));
@@ -74,9 +80,16 @@ export const Layout: React.FC<React.PropsWithChildren<{
   return (
     <React.Fragment>
       <header ref={headerRef} className='navbar py-2 px-4 border-bottom bg-white fixed-top'>
-        <div className='d-flex flex-row align-items-center'>
+        <div className='d-flex flex-row align-items-center w-100'>
           {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
-          <span className='h3 m-0 ms-3'>{theme.brandTitle}</span>
+          <span className='h3 m-0 ms-3 col-auto me-auto'>{theme.brandTitle}</span>
+          <div className='col-auto'>
+            {!_.isEmpty(locales) && <select className="form-select" onChange={(e) => { setPreferredLocale(e.target.value); }}>
+              {_.map(locales, ({ locale, label }) => (
+                currentLocale === locale ? <option selected value={locale}>{label}</option> : <option value={locale}>{label}</option>
+              ))}
+            </select>}
+          </div>
         </div>
       </header>
       <div className='container-fluid p-0 mx-0 mb-0 row flex-nowrap flex-fill' style={{ marginTop: headerHeight }}>

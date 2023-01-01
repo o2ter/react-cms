@@ -54,16 +54,16 @@ export const LoginPage: React.FC<{
           schema={schema}
           onSubmit={({ username, password }) => onLogin({ username, password })}>
 
-          <div className='form-group'>
+          <div className='form-group py-1'>
             <label className='small' htmlFor='username'>{localization.string('username')}</label>
             <Form.TextField name='username' style={{ width: '100%', marginHorizontal: 0 }} />
           </div>
-          <div className='form-group pt-1'>
+          <div className='form-group py-1'>
             <label className='small' htmlFor='password'>{localization.string('password')}</label>
             <Form.TextField secureTextEntry name='password' style={{ width: '100%', marginHorizontal: 0 }} />
           </div>
 
-          <div className='pt-3'>
+          <div className='py-2'>
             <Form.Button title={localization.string('login')} variant='primary' action='submit' />
           </div>
 
