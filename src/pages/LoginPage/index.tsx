@@ -38,8 +38,10 @@ const schema = {
 
 export const LoginPage: React.FC<{
   onLogin: (user: { username: string; password: string; }) => void;
+  LoginBrandComponent?: React.ReactNode;
 }> = ({
   onLogin,
+  LoginBrandComponent,
 }) => {
 
   const localization = Localization.useLocalize();
@@ -50,6 +52,7 @@ export const LoginPage: React.FC<{
   return <div className='d-flex flex-column align-items-center justify-content-center h-100' style={{ backgroundColor }}>
     <div className='d-flex flex-column'>
       <div className='container d-flex flex-column py-3 px-4 border rounded bg-white'>
+        {LoginBrandComponent}
         <Form
           schema={schema}
           onSubmit={({ username, password }) => onLogin({ username, password })}>

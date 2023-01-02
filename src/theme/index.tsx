@@ -29,8 +29,6 @@ import { useTheme as _useTheme } from '@o2ter/react-ui';
 
 export type ThemeProviderProps = {
   color?: string;
-  brandIcon?: React.ReactNode;
-  brandTitle?: string;
 }
 
 const ThemeContext = React.createContext<ThemeProviderProps>({});

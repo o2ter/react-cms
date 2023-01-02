@@ -41,6 +41,10 @@ export const Dashboard: React.FC<{
   pages,
   locales,
   logined = false,
+  LoginBrandComponent,
+  brandIcon,
+  brandTitle,
+  LayoutBrandComponent,
   onLogin,
   onLogout,
   ...props
@@ -62,8 +66,15 @@ export const Dashboard: React.FC<{
 
   return (
     <ThemeProvider {...props}>
-      {!logined ? <LoginComponent onLogin={_onLogin} /> : (
-        <LayoutComponent pages={pages} locales={locales} onLogout={onLogout}>
+      {!logined ? <LoginComponent onLogin={_onLogin} LoginBrandComponent={LoginBrandComponent} /> : (
+        <LayoutComponent
+          pages={pages}
+          locales={locales}
+          onLogout={onLogout}
+          brandIcon={brandIcon}
+          brandTitle={brandTitle}
+          LayoutBrandComponent={LayoutBrandComponent}
+        >
           <Navigator pages={_pages} />
         </LayoutComponent>
       )}

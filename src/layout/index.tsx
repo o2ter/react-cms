@@ -40,10 +40,16 @@ export const Layout: React.FC<React.PropsWithChildren<{
   pages: PageItem[];
   onLogout?: () => void;
   locales?: { locale: string; label: string; }[]
+  brandIcon?: React.ReactNode;
+  brandTitle?: string;
+  LayoutBrandComponent?: React.ReactNode;
 }>> = ({
   pages,
   onLogout,
   locales = [],
+  brandIcon,
+  brandTitle,
+  LayoutBrandComponent,
   children
 }) => {
 
@@ -81,8 +87,12 @@ export const Layout: React.FC<React.PropsWithChildren<{
     <React.Fragment>
       <header ref={headerRef} className='navbar py-2 px-4 border-bottom bg-white fixed-top'>
         <div className='d-flex flex-row align-items-center w-100'>
-          {theme.brandIcon ?? <BrandDefaultLogo name={theme.brandTitle} />}
-          <span className='h3 m-0 ms-3 col-auto me-auto'>{theme.brandTitle}</span>
+          {_.isNil(LayoutBrandComponent) ? (
+            <>
+              {brandIcon ?? <BrandDefaultLogo name={brandTitle} />}
+              <span className='h3 m-0 ms-3 col-auto me-auto'>{brandTitle}</span>
+            </>
+          ) : LayoutBrandComponent}
           <div className='col-auto'>
             {!_.isEmpty(locales) && <select className="form-select" onChange={(e) => { setPreferredLocale(e.target.value); }}>
               {_.map(locales, ({ locale, label }) => (
