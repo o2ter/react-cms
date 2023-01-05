@@ -1060,18 +1060,18 @@
     htmlparser2 "^7.1.2"
     ramda "^0.27.2"
 
-"@o2ter/i18n@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@o2ter/i18n/-/i18n-0.0.1.tgz#20292e460d1e1b635cfdea1d263c4421bda1918f"
-  integrity sha512-QobRShyAesWNpZi3xq18XlhXQQXQUPLTtuhdNjWTH+ApGYZJpMqsQR3kWOmBtLZMORob1LRS654VWca3lMa8Ow==
+"@o2ter/i18n@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@o2ter/i18n/-/i18n-0.0.5.tgz#3cc784ac2e3cc2f34ff6f71e07a90df6acb6a9fc"
+  integrity sha512-YPFIycdx5nig0i+GvkfbrbF/tSa+QjVtb/6C5cYKUZcNuZKuDlfXXlpWkmrKPeRJp3YbafecMX42TpCHFQwdSQ==
   dependencies:
     events ">=3.3.0"
     lodash ">=4.17.21"
 
-"@o2ter/react-ui@^0.0.104":
-  version "0.0.104"
-  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.104.tgz#d99d1c440c3991736486e2367cb76b943c75eed4"
-  integrity sha512-FQnd5bODe67K5cJi7Zx+7hZLFynSXwNgUbrvTUWRfpZ+vBcREN96ynzhrIe8D2E7JTEjiOY9/EHWgq/bYWBUtg==
+"@o2ter/react-ui@^0.0.115":
+  version "0.0.115"
+  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.115.tgz#9a4e601bdf6dfcfcc74cc139a0ab1d9bb26a0ba9"
+  integrity sha512-jwAVkjwBPSLmCt7LNey0AQZWJNFWlc428jBfmuBi/jlLFpPpmv+II6s7VqP5S6diu89fLxIPxJ7KLswabuoiaA==
   dependencies:
     "@react-native-picker/picker" ">=2.4.7"
     jsbarcode ">=3.11.5"

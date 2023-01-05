@@ -74,7 +74,8 @@ export const Layout: React.FC<React.PropsWithChildren<{
   const headerRef = React.useRef<HTMLElement>(null);
   const [headerHeight, setHeaderHeight] = React.useState(0);
 
-  const currentLocale = useLocalize(_.fromPairs(_.map(locales, ({ locale }) => [locale, locale])));
+  const localize = useLocalize();
+  const currentLocale = localize(_.fromPairs(_.map(locales, ({ locale }) => [locale, locale])));
 
   React.useEffect(() => {
     if (!headerRef.current) return;
