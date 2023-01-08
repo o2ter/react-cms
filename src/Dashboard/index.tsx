@@ -45,6 +45,7 @@ export const Dashboard: React.FC<{
   brandIcon,
   brandTitle,
   LayoutBrandComponent,
+  menuContainerStyle,
   onLogin,
   onLogout,
   ...props
@@ -74,6 +75,7 @@ export const Dashboard: React.FC<{
           brandIcon={brandIcon}
           brandTitle={brandTitle}
           LayoutBrandComponent={LayoutBrandComponent}
+          menuContainerStyle={menuContainerStyle}
         >
           <Navigator pages={_pages} />
         </LayoutComponent>

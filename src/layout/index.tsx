@@ -43,6 +43,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
   brandIcon?: React.ReactNode;
   brandTitle?: string;
   LayoutBrandComponent?: React.ReactNode;
+  menuContainerStyle?: React.CSSProperties;
 }>> = ({
   pages,
   onLogout,
@@ -50,10 +51,10 @@ export const Layout: React.FC<React.PropsWithChildren<{
   brandIcon,
   brandTitle,
   LayoutBrandComponent,
+  menuContainerStyle,
   children
 }) => {
 
-  const id = React.useId();
   const localization = Localization.useLocalize();
 
   const theme = useTheme();
@@ -104,10 +105,12 @@ export const Layout: React.FC<React.PropsWithChildren<{
         </div>
       </header>
       <div className='container-fluid p-0 mx-0 mb-0 row flex-nowrap flex-fill' style={{ marginTop: headerHeight }}>
-        <aside className='d-flex flex-column col-4 col-md-3 col-lg-2 p-0 border-end' style={{
+        <aside className='d-flex flex-column p-0 border-end' style={{
           overflowY: 'auto',
           minHeight: '100%',
+          width: 200,
           height: 0,
+          ...menuContainerStyle,
         }}>
           <div className='position-fixed start-0 bottom-0' style={{
             width: 'inherit',
