@@ -1,7 +1,7 @@
 //
 //  index.js
 //
-//  Copyright (c) 2021 - 2022 O2ter Limited. All rights reserved.
+//  Copyright (c) 2021 - 2023 O2ter Limited. All rights reserved.
 //
 
 import _ from 'lodash';
