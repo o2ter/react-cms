@@ -25,6 +25,7 @@
 
 import _ from 'lodash';
 import React from 'react';
+import { useEquivalent } from 'sugax';
 import { useTheme as _useTheme } from '@o2ter/react-ui';
 
 export type ThemeProviderProps = {
@@ -33,7 +34,15 @@ export type ThemeProviderProps = {
 
 const ThemeContext = React.createContext<ThemeProviderProps>({});
 
-export const ThemeProvider: React.FC<React.PropsWithChildren<ThemeProviderProps>> = ({ children, ...props }) => <ThemeContext.Provider value={props}>{children}</ThemeContext.Provider>
+export const ThemeProvider: React.FC<React.PropsWithChildren<ThemeProviderProps>> = ({
+  children,
+  ...props
+}) => {
+  const _props = useEquivalent(props);
+  return (
+    <ThemeContext.Provider value={_props}>{children}</ThemeContext.Provider>
+  )
+}
 
 export const useTheme = () => ({
   ..._useTheme(),
