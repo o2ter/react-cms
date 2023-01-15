@@ -92,16 +92,16 @@ export const Layout: React.FC<React.PropsWithChildren<{
           {_.isNil(LayoutBrandComponent) ? (
             <>
               {brandIcon ?? <BrandDefaultLogo name={brandTitle} />}
-              <span className='h3 m-0 ms-3 col-auto me-auto'>{brandTitle}</span>
+              {brandTitle && <span className='h3 m-0 ms-3 col-auto'>{brandTitle}</span>}
             </>
           ) : LayoutBrandComponent}
-          <div className='col-auto'>
-            {!_.isEmpty(locales) && <select className="form-select" onChange={(e) => { setPreferredLocale(e.target.value); }}>
+          {!_.isEmpty(locales) && <div className='ms-auto col-auto'>
+            <select className="form-select" onChange={(e) => { setPreferredLocale(e.target.value); }}>
               {_.map(locales, ({ locale, label }) => (
                 currentLocale === locale ? <option selected value={locale}>{label}</option> : <option value={locale}>{label}</option>
               ))}
-            </select>}
-          </div>
+            </select>
+          </div>}
         </div>
       </header>
       <div className='container-fluid p-0 mx-0 mb-0 row flex-nowrap flex-fill' style={{ marginTop: headerHeight }}>
