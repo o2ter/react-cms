@@ -26,7 +26,9 @@ export default [
   {
     input: `src/index`,
     external: [
-      /node_modules/
+      /node_modules/,
+      /^react$/,
+      /^react-native$/,
     ],
     output: [
       {
@@ -53,7 +55,9 @@ export default [
   {
     input: `src/index`,
     external: [
-      /node_modules/
+      /node_modules/,
+      /^react$/,
+      /^react-native$/,
     ],
     output: [
       {
