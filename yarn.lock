@@ -1091,6 +1091,13 @@
     react-native-vector-icons ">=9.2.0"
     react-router-dom ">=6.4.2"
 
+"@o2ter/wireframe@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@o2ter/wireframe/-/wireframe-0.0.1.tgz#87d56a6309a5319021d7f66b0377e1643982c8c9"
+  integrity sha512-B2CpejSJZY1vNCf02Yi3lj7eYiQmnZ3zHoCcmmBn3WZLqHkx1Lwd5ud3Ot5hbS3/WBD+7CyQ7Hf7gvIwPaWGfg==
+  dependencies:
+    lodash ">=4.17.21"
+
 "@react-native-picker/picker@>=2.4.7":
   version "2.4.8"
   resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.8.tgz#a1a21f3d6ecadedbc3f0b691a444ddd7baa081f8"

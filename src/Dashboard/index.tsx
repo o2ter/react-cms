@@ -26,9 +26,9 @@
 import _ from 'lodash';
 import React, { ComponentPropsWithoutRef } from 'react';
 import { useToast } from '@o2ter/react-ui';
-import { Layout, PageItem } from '../layout';
+import { Layout } from '../layout';
 import { ThemeProvider, ThemeProviderProps } from '../theme';
-import Navigator from '../Navigator';
+import { Navigator } from '@o2ter/wireframe';
 import LoginPage from '../pages/LoginPage';
 
 export const Dashboard: React.FC<{
