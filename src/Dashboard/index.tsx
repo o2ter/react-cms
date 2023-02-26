@@ -24,7 +24,7 @@
 //
 
 import _ from 'lodash';
-import React, { ComponentPropsWithoutRef } from 'react';
+import React from 'react';
 import { useToast } from '@o2ter/react-ui';
 import { Layout } from '../layout';
 import { ThemeProvider, ThemeProviderProps } from '../theme';
@@ -32,10 +32,10 @@ import { Navigator } from '@o2ter/wireframe';
 import LoginPage from '../pages/LoginPage';
 
 export const Dashboard: React.FC<{
-  LayoutComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof Layout>>;
-  LoginComponent?: React.ComponentType<ComponentPropsWithoutRef<typeof LoginPage>>;
+  LayoutComponent?: React.ComponentType<React.ComponentPropsWithoutRef<typeof Layout>>;
+  LoginComponent?: React.ComponentType<React.ComponentPropsWithoutRef<typeof LoginPage>>;
   logined?: boolean;
-} & ComponentPropsWithoutRef<typeof LoginPage> & ComponentPropsWithoutRef<typeof Layout> & ThemeProviderProps> = ({
+} & React.ComponentPropsWithoutRef<typeof LoginPage> & React.ComponentPropsWithoutRef<typeof Layout> & ThemeProviderProps> = ({
   LayoutComponent = Layout,
   LoginComponent = LoginPage,
   pages,

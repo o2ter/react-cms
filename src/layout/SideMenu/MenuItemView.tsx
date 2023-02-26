@@ -24,7 +24,7 @@
 //
 
 import _ from 'lodash';
-import React, { ComponentPropsWithoutRef } from 'react';
+import React from 'react';
 import { Pressable, StyleProp, ViewStyle } from 'react-native';
 import { List, useLocation, Link, Route, TextStyleProvider } from '@o2ter/react-ui';
 import { className } from '../../utils';
@@ -39,7 +39,7 @@ type MenuBase = {
   children?: PageItem[];
 };
 
-export type PageItem = ComponentPropsWithoutRef<typeof Route> & MenuBase & {
+export type PageItem = React.ComponentPropsWithoutRef<typeof Route> & MenuBase & {
   hidden?: Boolean;
 };
 
