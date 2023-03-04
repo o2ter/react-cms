@@ -52,7 +52,7 @@ export const Dashboard: React.FC<{
 }) => {
 
   const _pages = React.useMemo(
-    () => _.flatMapDeep(pages, p => p.children ? [p, ...p.children] : p).filter(x => !_.isNil(x.component)),
+    () => _.flatMapDeep(pages, p => p.children ? [p, ...p.children] : p).flatMap(x => _.isNil(x.component) ? [] : [_.omit(x, 'children')]),
     [pages]
   );
 
