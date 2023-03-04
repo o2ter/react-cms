@@ -56,7 +56,7 @@ const active_check = (
   children?: PageItem[],
 ): boolean => {
 
-  const _active = active ?? ((l) => _.isString(link) && l.pathname === link);
+  const _active = active ?? ((l) => _.isString(link) && `${l.pathname}${l.search}` === link);
   if (_active(location)) return true;
 
   return !_.isNil(_.find(children, (x) => active_check(location, x.path, x.active, x.children)));
