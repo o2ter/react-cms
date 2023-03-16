@@ -35,6 +35,7 @@ export const Dashboard: React.FC<{
   LayoutComponent?: React.ComponentType<React.ComponentPropsWithoutRef<typeof Layout>>;
   LoginComponent?: React.ComponentType<React.ComponentPropsWithoutRef<typeof LoginPage>>;
   logined?: boolean;
+  onError?: (error: Error, info: React.ErrorInfo) => void;
 } & React.ComponentPropsWithoutRef<typeof LoginPage> & React.ComponentPropsWithoutRef<typeof Layout> & ThemeProviderProps> = ({
   LayoutComponent = Layout,
   LoginComponent = LoginPage,
@@ -48,6 +49,7 @@ export const Dashboard: React.FC<{
   menuContainerStyle,
   onLogin,
   onLogout,
+  onError,
   ...props
 }) => {
 
@@ -77,7 +79,7 @@ export const Dashboard: React.FC<{
           LayoutBrandComponent={LayoutBrandComponent}
           menuContainerStyle={menuContainerStyle}
         >
-          <Navigator pages={_pages} />
+          <Navigator pages={_pages} onError={onError} />
         </LayoutComponent>
       )}
     </ThemeProvider>
