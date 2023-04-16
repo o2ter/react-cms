@@ -1144,10 +1144,10 @@
     htmlparser2 "^7.1.2"
     ramda "^0.27.2"
 
-"@o2ter/i18n@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@o2ter/i18n/-/i18n-0.0.8.tgz#2b37c511d99eceba7cde88351e9539acabe24006"
-  integrity sha512-GUEUQ5G0vPggJCDqBZmUJt3GQqi4lF1qVuyVyEtD/O3mJgoVb55tXkSy0Ncn8TqBoFPHIuYwJBZC9mkyvrOvCQ==
+"@o2ter/i18n@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@o2ter/i18n/-/i18n-0.0.9.tgz#40f873d3b25fa2805e3161545d7c18f89ad932ae"
+  integrity sha512-PjwzXGyyGifD9K+efsSKA61W/xU1nbfJnJQhMjK5wnzBwhCFBg2XjqUC3DaIbKtvepwWoVftvWc2PeZ7slH3/A==
   dependencies:
     events ">=3.3.0"
     lodash ">=4.17.21"
