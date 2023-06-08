@@ -85,3 +85,5 @@ export const Dashboard: React.FC<{
     </ThemeProvider>
   );
 }
+
+Dashboard.displayName = 'Dashboard';
