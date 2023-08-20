@@ -17,5 +17,9 @@
     "emitDeclarationOnly": true,
     "downlevelIteration": true,
     "moduleSuffixes": [".web", ""]
-  }
+  },
+  "exclude":[
+    "**/dist/*",
+    "**/node_modules/*"
+  ]
 }
