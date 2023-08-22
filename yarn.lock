@@ -1144,18 +1144,18 @@
     htmlparser2 "^7.1.2"
     ramda "^0.27.2"
 
-"@o2ter/i18n@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@o2ter/i18n/-/i18n-0.0.9.tgz#40f873d3b25fa2805e3161545d7c18f89ad932ae"
-  integrity sha512-PjwzXGyyGifD9K+efsSKA61W/xU1nbfJnJQhMjK5wnzBwhCFBg2XjqUC3DaIbKtvepwWoVftvWc2PeZ7slH3/A==
+"@o2ter/i18n@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@o2ter/i18n/-/i18n-0.0.10.tgz#5f966a518def93e10824dc8ed26f1c3641280562"
+  integrity sha512-V57ghWj/a+mNXxbkkcBEqPLBW9QbosYf9Oq4vMXm/4EUGet3FkKStIdlMOu7BQyRMyxFZK6dKjVvQCd7/qqC7g==
   dependencies:
     events ">=3.3.0"
     lodash ">=4.17.21"
 
-"@o2ter/react-ui@^0.0.153":
-  version "0.0.153"
-  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.153.tgz#3a04e8be1705325e933a6a2a4665833340d2de7b"
-  integrity sha512-vy4XzKw5+CFEOmerl8YlmZWxMZWD9YQvq0ruDeMDGE96b8YK4G37+JQuUMk0XI0WmfUqkqTFQp/OVYCgHdzq2A==
+"@o2ter/react-ui@^0.0.158":
+  version "0.0.158"
+  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.158.tgz#98bec8aa47b50988d0e07aa2bea28670a83ea900"
+  integrity sha512-WoutOYVyDx9QU2oB8v3OuuAT2eknGKMFv5k5kF4k7yHEQfKpBsb+wRmlPL9FYa24530VEzDljV9TI6wqzymYwA==
   dependencies:
     "@react-native-picker/picker" ">=2.4.8"
     codemirror "^6.0.1"
@@ -1175,17 +1175,17 @@
     react-native-vector-icons ">=9.2.0"
     react-router-dom ">=6.6.2"
 
-"@o2ter/valid.js@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@o2ter/valid.js/-/valid.js-1.0.0.tgz#c72b59da07c9baa07c766532bd3748f2775988f3"
-  integrity sha512-fQvTrP1tzMFuryELaxQLw18mHtkmS5imwUxMsGkIVKDOlr3GW97QRp3QIuRAN6aNoAGKFvks/FPWCkhY1cUcwA==
+"@o2ter/valid.js@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@o2ter/valid.js/-/valid.js-1.0.2.tgz#f37ceb964a064e489a60a3748009e92bc32f9753"
+  integrity sha512-GbO9tylhBxMBx6vsKhPqNEgT/xIVPIsjvNCY11ypb13aAVkZM7pbCnWz97eq/xx2mqmRTvyUXzRbdBZIOy+xZg==
   dependencies:
     lodash ">=4.17.21"
 
-"@o2ter/wireframe@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@o2ter/wireframe/-/wireframe-0.0.3.tgz#370b97adae01f5cfdb3a21567e6bbae19fd81892"
-  integrity sha512-QjDhzVsYlzcu3AlBp57q4Kd7AoyJb+EUF3dmOXIsUrqBrk5fy4zPUh9hWRhSb1nan+HK0rZFEKYTUAjMt2P7Pg==
+"@o2ter/wireframe@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@o2ter/wireframe/-/wireframe-0.0.10.tgz#ef659c20139e4d2c29a25e0d0f3e67d9435c4321"
+  integrity sha512-wtxGsRZS2B3bfcy0b8Sp/jqKFlsaz24RQBpgVmu4J1SjJ2fktBQlO4PE1win5NO17FpgSvTBS7l/klXemHEz2w==
   dependencies:
     lodash ">=4.17.21"
 
@@ -2773,10 +2773,10 @@ style-mod@^4.0.0:
   resolved "https://registry.yarnpkg.com/style-mod/-/style-mod-4.0.2.tgz#ef9e14c4c67428bcf31cc886787e81ca7f8f5021"
   integrity sha512-C4myMmRTO8iaC5Gg+N1ftK2WT4eXUTMAa+HEFPPrfVeO/NtqLTtAmV1HbqnuGtLwCek44Ra76fdGUkSqjiMPcQ==
 
-sugax@^1.0.79:
-  version "1.0.79"
-  resolved "https://registry.yarnpkg.com/sugax/-/sugax-1.0.79.tgz#300cbb19a123397a0dc5420602d5de1b50376e25"
-  integrity sha512-gy2HqHUCls30kBKqq9XcBIunzx6Fx+gsYYJTlsriEPPZKDfmspi1ubv3opjqQXkHR56Zif9OPjXRdKgA/5R33Q==
+sugax@^1.0.84:
+  version "1.0.84"
+  resolved "https://registry.yarnpkg.com/sugax/-/sugax-1.0.84.tgz#f4c3b7f6a2763b21db3db28afe8fd01ad849428c"
+  integrity sha512-48g+1PYGT7BplenMYP0CAvM4FBQMMXgLfKDDEoIc2mwk0q8lEuiIKJ/GJKWVNoNUckFzMcC+h1RraR/9S9BsUw==
   dependencies:
     lodash ">=4.17.21"
 

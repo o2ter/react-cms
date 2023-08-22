@@ -26,7 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { string } from '@o2ter/valid.js';
-import { Form, shiftColor } from '@o2ter/react-ui';
+import { View, Text, Form, shiftColor } from '@o2ter/react-ui';
 import { useTheme } from '../../theme';
 
 import Localization from '../../i18n/pages/LoginPage';
@@ -44,36 +44,48 @@ export const LoginPage: React.FC<{
   LoginBrandComponent,
 }) => {
 
-  const localization = Localization.useLocalize();
+    const localization = Localization.useLocalize();
 
-  const theme = useTheme();
-  const backgroundColor = shiftColor(theme.themeColors.primary, theme.colorWeights['900']);
+    const theme = useTheme();
+    const backgroundColor = shiftColor(theme.themeColors.primary, theme.colorWeights['900']);
 
-  return <div className='d-flex flex-column align-items-center justify-content-center h-100' style={{ backgroundColor }}>
-    <div className='d-flex flex-column'>
-      <div className='container d-flex flex-column py-3 px-4 border rounded bg-white'>
-        {LoginBrandComponent}
-        <Form
-          schema={schema}
-          onSubmit={({ username, password }) => onLogin({ username, password })}>
+    return (
+      <View
+        classes='bg-primary-900 align-items-center justify-content-center'
+        style={{
+          flex: 1,
+        }}
+      >
+        <View classes='bg-white px-3 py-2 rounded-sm'>
+          {LoginBrandComponent}
+          <Form
+            schema={schema}
+            onSubmit={({ username, password }) => onLogin({ username, password })}>
 
-          <div className='form-group py-1'>
-            <label className='small' htmlFor='username'>{localization.string('username')}</label>
-            <Form.TextField name='username' style={{ width: '100%', marginHorizontal: 0 }} />
-          </div>
-          <div className='form-group py-1'>
-            <label className='small' htmlFor='password'>{localization.string('password')}</label>
-            <Form.TextField secureTextEntry name='password' style={{ width: '100%', marginHorizontal: 0 }} />
-          </div>
+            <View classes='py-1'>
+              <View classes='flex-row justify-content-between'>
+                <Text>{localization.string('username')}</Text>
+                <Form.ErrorMessage name='username' />
+              </View>
+              <Form.TextField name='username' />
+            </View>
 
-          <div className='py-2'>
-            <Form.Button title={localization.string('login')} variant='primary' action='submit' />
-          </div>
+            <View classes='py-1'>
+              <View classes='flex-row justify-content-between'>
+                <Text>{localization.string('password')}</Text>
+                <Form.ErrorMessage name='password' />
+              </View>
+              <Form.TextField secureTextEntry name='password' />
+            </View>
 
-        </Form>
-      </div>
-    </div>
-  </div>
-}
+            <View classes='py-1'>
+              <Form.Button title={localization.string('login')} variant='primary' action='submit' />
+            </View>
+
+          </Form>
+        </View>
+      </View>
+    );
+  }
 
 export default LoginPage;
