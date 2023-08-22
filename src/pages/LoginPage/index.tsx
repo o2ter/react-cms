@@ -26,8 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { string } from '@o2ter/valid.js';
-import { View, Text, Form, shiftColor } from '@o2ter/react-ui';
-import { useTheme } from '../../theme';
+import { View, Text, Form } from '@o2ter/react-ui';
 
 import Localization from '../../i18n/pages/LoginPage';
 
@@ -45,9 +44,6 @@ export const LoginPage: React.FC<{
 }) => {
 
     const localization = Localization.useLocalize();
-
-    const theme = useTheme();
-    const backgroundColor = shiftColor(theme.themeColors.primary, theme.colorWeights['900']);
 
     return (
       <View
