@@ -87,7 +87,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
 
   return (
     <React.Fragment>
-      <header ref={headerRef} className='navbar py-2 px-4 border-bottom bg-white fixed-top'>
+      <header ref={headerRef} className='d-flex py-2 px-4 border-bottom bg-white fixed-top'>
         <div className='d-flex flex-row align-items-center w-100'>
           {_.isNil(LayoutBrandComponent) ? (
             <>
@@ -104,7 +104,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
           </div>}
         </div>
       </header>
-      <div className='container-fluid p-0 mx-0 mb-0 row flex-nowrap flex-fill' style={{ marginTop: headerHeight }}>
+      <div className='d-flex p-0 mx-0 mb-0 row flex-nowrap flex-fill' style={{ marginTop: headerHeight }}>
         <aside className='d-flex flex-column p-0 border-end' style={{
           overflowY: 'auto',
           minHeight: '100%',
