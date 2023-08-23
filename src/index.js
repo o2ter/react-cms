@@ -24,4 +24,5 @@
 //
 
 import './css/main.scss';
+export { Navigator } from './Navigator';
 export { Dashboard } from './Dashboard';
