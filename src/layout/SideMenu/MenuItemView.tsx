@@ -26,8 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { Pressable, StyleProp, ViewStyle } from 'react-native';
-import { List, useLocation, Link, Route, TextStyleProvider } from '@o2ter/react-ui';
-import { className } from '../../utils';
+import { List, useLocation, Link, Route, StyleProvider } from '@o2ter/react-ui';
 import { useTheme } from '../../theme';
 
 type MenuBase = {
@@ -93,7 +92,7 @@ export const MenuItemView = ({
         borderLeftColor: isActive ? themeColor : 'transparent',
       } : {}}>
       {icon && (
-        <TextStyleProvider style={{ color: 'inherit', fontSize: theme.fontSizeBase }}>{icon}</TextStyleProvider>
+        <StyleProvider components={{ text: { color: 'inherit', fontSize: theme.fontSizeBase } }}>{icon}</StyleProvider>
       )}
       <span className={className(
         'my-0',

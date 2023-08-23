@@ -29,7 +29,7 @@ import { Pressable, StyleSheet } from 'react-native';
 import { SideMenu, PageItem } from './SideMenu';
 import { BrandDefaultLogo } from './BrandDefaultLogo';
 import { useTheme } from '../theme';
-import { Icon, TextStyleProvider } from '@o2ter/react-ui';
+import { Icon, StyleProvider } from '@o2ter/react-ui';
 
 import Localization from '../i18n/layout/SideMenu';
 import { setPreferredLocale, useLocalize } from '@o2ter/i18n';
@@ -116,16 +116,16 @@ export const Layout: React.FC<React.PropsWithChildren<{
             width: 'inherit',
             top: headerHeight,
           }}>
-            <div className='d-flex flex-column position-absolute top-0 start-0 bottom-0 end-0'>
+            <div className='d-flex flex-column absolute-fill'>
               <div style={{ flex: 1, overflowY: 'auto' }}>
                 <SideMenu pages={pages} menuStyle={style.menuItem} themeColor={themeColor} />
               </div>
               {_.isFunction(onLogout) && (
                 <Pressable onPress={onLogout}>
                   <div className='d-flex flex-nowrap ps-3 py-2 text-body link-primary'>
-                    <TextStyleProvider style={{ color: 'inherit', fontSize: theme.fontSizeBase }}>
+                    <StyleProvider components={{ text: { color: 'inherit', fontSize: theme.fontSizeBase } }}>
                       <Icon icon='MaterialIcons' name='logout' />
-                    </TextStyleProvider>
+                    </StyleProvider>
                     <span className='my-0 h6 ms-1'>{localization.string('logout')}</span>
                   </div>
                 </Pressable>
