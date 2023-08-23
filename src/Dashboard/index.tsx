@@ -28,7 +28,7 @@ import React from 'react';
 import { useToast } from '@o2ter/react-ui';
 import { Layout } from '../layout';
 import { ThemeProvider, ThemeProviderProps } from '../theme';
-import { Navigator } from '@o2ter/wireframe';
+import { Navigator } from '../Navigator';
 import LoginPage from '../pages/LoginPage';
 
 export const Dashboard: React.FC<{
