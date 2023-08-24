@@ -80,7 +80,7 @@ export const MenuItemView = ({
   let label = (
     <Text
       classes={[
-        'd-flex flex-nowrap ps-3',
+        'd-flex flex-nowrap my-0 ps-3',
         section ? 'py-2' : 'py-1',
         isActive ? 'text-primary' : 'text-body',
       ]}
