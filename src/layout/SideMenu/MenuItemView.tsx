@@ -74,6 +74,7 @@ export const MenuItemView = ({
 
   const location = useLocation();
   const isActive = active_check(location, path, active, children);
+  const [focused, setFocused] = React.useState(false);
 
   const theme = useTheme();
 
@@ -82,30 +83,44 @@ export const MenuItemView = ({
       classes={[
         'd-flex flex-nowrap my-0 ps-3',
         section ? 'py-2' : 'py-1',
-        isActive ? 'text-primary' : 'text-body',
       ]}
       style={section ? {
         borderLeftWidth: 4,
         borderLeftColor: isActive ? themeColor : 'transparent',
       } : {}}>
       {icon && (
-        <StyleProvider components={{ text: { color: 'inherit', fontSize: theme.fontSizeBase } }}>{icon}</StyleProvider>
+        <StyleProvider components={{
+          text: {
+            color: focused || isActive ? 'text-primary' : 'inherit',
+            fontSize: theme.fontSizeBase
+          }
+        }}>{icon}</StyleProvider>
       )}
       <Text classes={[
         'my-0',
         section ? 'h6' : '',
         icon ? 'ms-1' : '',
+        focused || isActive ? 'text-primary' : 'text-body',
       ]}>{title}</Text>
     </Text>
   );
 
   if (_.isFunction(onPress)) {
     label = (
-      <Pressable onPress={onPress}>{label}</Pressable>
+      <Pressable
+        onPress={onPress}
+        onHoverIn={() => setFocused(true)}
+        onHoverOut={() => setFocused(false)}
+      >{label}</Pressable>
     );
   } else if (_.isString(path)) {
     label = (
-      <Link to={path} style={{ textDecoration: 'none' }}>{label}</Link>
+      <Link
+        to={path}
+        style={{ textDecoration: 'none' }}
+        onHoverIn={() => setFocused(true)}
+        onHoverOut={() => setFocused(false)}
+      >{label}</Link>
     );
   }
 
