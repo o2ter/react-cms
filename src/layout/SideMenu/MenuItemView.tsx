@@ -83,7 +83,6 @@ export const MenuItemView = ({
         'd-flex flex-nowrap ps-3',
         section ? 'py-2' : 'py-1',
         isActive ? 'text-primary' : 'text-body',
-        _.isFunction(onPress) || _.isString(path) ? 'text-primary' : '',
       ]}
       style={section ? {
         borderLeftWidth: 4,
