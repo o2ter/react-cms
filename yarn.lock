@@ -1152,10 +1152,10 @@
     events ">=3.3.0"
     lodash ">=4.17.21"
 
-"@o2ter/react-ui@^0.0.160":
-  version "0.0.160"
-  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.160.tgz#67a46798e4425a4e73bbcf1b7de56d42986a248f"
-  integrity sha512-amGlKhAk5Ws2fmWHDKHU6gZQu/poxyl/t/+fUeI2gAVWcyBefyQdD3EpFulA32SgXypZ9XKQs7o2Pjzwxv4Ylw==
+"@o2ter/react-ui@^0.0.161":
+  version "0.0.161"
+  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.161.tgz#6c18c9ec6b18f5fac1f7c94bf30f27672956dc0d"
+  integrity sha512-EG+zcVLCNtQlK0lv+8G/iYboJ0Uf7123I5gW+wKOeGjLmBIV8GkENgWqVx9gKDInfO7u8TUuMtl6sdkWYJgZBg==
   dependencies:
     "@react-native-picker/picker" ">=2.4.8"
     codemirror "^6.0.1"
@@ -1182,10 +1182,10 @@
   dependencies:
     lodash ">=4.17.21"
 
-"@o2ter/wireframe@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@o2ter/wireframe/-/wireframe-0.0.12.tgz#166135445338105c7ba2c89eeee12f8dcfe575e4"
-  integrity sha512-1lb7DaFLyIB4si3/AHWyIokyCjjmfZ1ZCzGqz4nX2qZMbGCK7a+1ailHHmYelYv1fQbq6ZWKkotSmDa7hJ2o4Q==
+"@o2ter/wireframe@^0.0.19":
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/@o2ter/wireframe/-/wireframe-0.0.19.tgz#5269ebfc874e189882ee84fde39f0018b08172ae"
+  integrity sha512-k3sm+I8ACF/Qm+/4uz6HfDLty4IBFoQzGMtxmt5GXb9AXIcCRBr8QNWT+ja3Aum5w+1mMKg6oxY8/ekS7JJmWg==
   dependencies:
     lodash ">=4.17.21"
 
