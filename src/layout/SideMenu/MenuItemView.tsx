@@ -26,8 +26,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { Pressable, StyleProp, ViewStyle } from 'react-native';
-import { List, useLocation, Link, Route, StyleProvider, View, Text } from '@o2ter/react-ui';
-import { useTheme } from '../../theme';
+import { List, useLocation, useTheme, Link, Route, StyleProvider, Text } from '@o2ter/react-ui';
 
 type MenuBase = {
   icon?: React.ReactNode;
@@ -76,15 +75,15 @@ export const MenuItemView = ({
   const location = useLocation();
   const isActive = active_check(location, path, active, children);
 
-  const theme = useTheme()
+  const theme = useTheme();
 
   let label = (
-    <View
+    <Text
       classes={[
         'd-flex flex-nowrap ps-3',
         section ? 'py-2' : 'py-1',
         isActive ? 'text-primary' : 'text-body',
-        _.isFunction(onPress) || _.isString(path) ? 'link-primary' : '',
+        _.isFunction(onPress) || _.isString(path) ? 'text-primary' : '',
       ]}
       style={section ? {
         borderLeftWidth: 4,
@@ -98,7 +97,7 @@ export const MenuItemView = ({
         section ? 'h6' : '',
         icon ? 'ms-1' : '',
       ]}>{title}</Text>
-    </View>
+    </Text>
   );
 
   if (_.isFunction(onPress)) {
