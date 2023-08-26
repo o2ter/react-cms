@@ -26,30 +26,28 @@
 import _ from 'lodash';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Text, tintColor, useTheme } from '@o2ter/react-ui';
+import { View, Text, tintColor } from '@o2ter/react-ui';
 import cyrb53 from './cyb53';
 import hsv2rgb from './hsv2rgb';
+
+const style = StyleSheet.create({
+  container: {
+    width: 48,
+    height: 48,
+    borderRadius: 8,
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 24,
+    textAlign: 'center',
+  },
+});
 
 export const BrandDefaultLogo: React.FC<{
   name?: string;
 }> = ({
   name
 }) => {
-
-  const theme = useTheme();
-
-  const style = React.useMemo(() => StyleSheet.create({
-    container: {
-      width: 48,
-      height: 48,
-      borderRadius: 8,
-      justifyContent: 'center',
-    },
-    text: {
-      fontSize: 24,
-      textAlign: 'center',
-    },
-  }), [theme]);
 
   const rand = cyrb53(name ?? '') / cyrb53.MAX_VALUE;
   const color = hsv2rgb(rand, 1, 0.75);

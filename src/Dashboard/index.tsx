@@ -25,20 +25,23 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { useToast } from '@o2ter/react-ui';
+import { useToast, ThemeProvider } from '@o2ter/react-ui';
 import { Layout } from '../layout';
-import { ThemeProvider, ThemeProviderProps } from '../theme';
 import { Navigator } from '../Navigator';
 import LoginPage from '../pages/LoginPage';
 
-export const Dashboard: React.FC<{
+type DashboardProps = {
   LayoutComponent?: React.ComponentType<React.ComponentPropsWithoutRef<typeof Layout>>;
   LoginComponent?: React.ComponentType<React.ComponentPropsWithoutRef<typeof LoginPage>>;
   logined?: boolean;
   onError?: (error: Error, info: React.ErrorInfo) => void;
-} & React.ComponentPropsWithoutRef<typeof LoginPage> & React.ComponentPropsWithoutRef<typeof Layout> & ThemeProviderProps> = ({
+} & React.ComponentPropsWithoutRef<typeof LoginPage>
+  & Omit<React.ComponentPropsWithoutRef<typeof Layout>, 'children'>;
+
+export const Dashboard: React.FC<DashboardProps> = ({
   LayoutComponent = Layout,
   LoginComponent = LoginPage,
+  color,
   pages,
   locales,
   logined = false,
@@ -50,7 +53,6 @@ export const Dashboard: React.FC<{
   onLogin,
   onLogout,
   onError,
-  ...props
 }) => {
 
   const _pages = React.useMemo(
@@ -68,9 +70,10 @@ export const Dashboard: React.FC<{
   const _onLogin = React.useCallback((user: { username: string; password: string; }) => void _showError(() => onLogin(user)), [onLogin, _showError]);
 
   return (
-    <ThemeProvider {...props}>
+    <ThemeProvider>
       {!logined ? <LoginComponent onLogin={_onLogin} LoginBrandComponent={LoginBrandComponent} /> : (
         <LayoutComponent
+          color={color}
           pages={pages}
           locales={locales}
           onLogout={onLogout}

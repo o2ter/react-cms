@@ -28,8 +28,7 @@ import React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 import { SideMenu, PageItem } from './SideMenu';
 import { BrandDefaultLogo } from './BrandDefaultLogo';
-import { useTheme } from '../theme';
-import { Icon, StyleProvider } from '@o2ter/react-ui';
+import { Icon, StyleProvider, useTheme } from '@o2ter/react-ui';
 
 import Localization from '../i18n/layout/SideMenu';
 import { setPreferredLocale, useLocalize } from '@o2ter/i18n';
@@ -37,6 +36,7 @@ import { setPreferredLocale, useLocalize } from '@o2ter/i18n';
 export { PageItem };
 
 export const Layout: React.FC<React.PropsWithChildren<{
+  color?: string;
   pages: PageItem[];
   onLogout?: () => void;
   locales?: { locale: string; label: string; }[]
@@ -45,6 +45,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
   LayoutBrandComponent?: React.ReactNode;
   menuContainerStyle?: React.CSSProperties;
 }>> = ({
+  color,
   pages,
   onLogout,
   locales = [],
@@ -59,7 +60,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
 
   const theme = useTheme();
 
-  const _color = theme.color ?? 'primary';
+  const _color = color ?? 'primary';
   const themeColor = theme.themeColors[_color] ?? theme.colors[_color] ?? _color;
 
   const style = React.useMemo(() => StyleSheet.create({
@@ -123,7 +124,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
               {_.isFunction(onLogout) && (
                 <Pressable onPress={onLogout}>
                   <div className='d-flex flex-nowrap ps-3 py-2 text-body link-primary'>
-                    <StyleProvider components={{ text: { color: 'inherit', fontSize: theme.fontSizeBase } }}>
+                    <StyleProvider components={{ text: { color: 'inherit', fontSize: theme.root.fontSize } }}>
                       <Icon icon='MaterialIcons' name='logout' />
                     </StyleProvider>
                     <span className='my-0 h6 ms-1'>{localization.string('logout')}</span>

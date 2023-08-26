@@ -92,7 +92,7 @@ export const MenuItemView = ({
         <StyleProvider components={{
           text: {
             color: focused || isActive ? 'text-primary' : 'inherit',
-            fontSize: theme.fontSizeBase
+            fontSize: theme.root.fontSize
           }
         }}>{icon}</StyleProvider>
       )}
