@@ -73,71 +73,59 @@ export const Layout: React.FC<React.PropsWithChildren<{
     },
   }), [theme]);
 
-  const headerRef = React.useRef<HTMLElement>(null);
-  const [headerHeight, setHeaderHeight] = React.useState(0);
-
   const localize = useLocalize();
   const currentLocale = localize(_.fromPairs(_.map(locales, ({ locale }) => [locale, locale])));
 
-  React.useEffect(() => {
-    if (!headerRef.current) return;
-    const observer = new ResizeObserver((entries) => setHeaderHeight(entries[0].target.clientHeight));
-    observer.observe(headerRef.current);
-    return () => void observer.disconnect();
-  }, [headerRef.current]);
-
   return (
-    <React.Fragment>
-      <header ref={headerRef} className='d-flex py-2 px-4 border-bottom bg-white fixed-top'>
-        <div className='d-flex flex-row align-items-center w-100'>
-          {_.isNil(LayoutBrandComponent) ? (
-            <>
-              {brandIcon ?? <BrandDefaultLogo name={brandTitle} />}
-              {brandTitle && <span className='h3 m-0 ms-3 col-auto'>{brandTitle}</span>}
-            </>
-          ) : LayoutBrandComponent}
-          {!_.isEmpty(locales) && <div className='ms-auto col-auto'>
-            <select className="form-select" onChange={(e) => { setPreferredLocale(e.target.value); }}>
-              {_.map(locales, ({ locale, label }) => (
-                currentLocale === locale ? <option selected value={locale}>{label}</option> : <option value={locale}>{label}</option>
-              ))}
-            </select>
-          </div>}
-        </div>
-      </header>
-      <div className='d-flex p-0 mx-0 mb-0 row flex-nowrap flex-fill' style={{ marginTop: headerHeight }}>
-        <aside className='d-flex flex-column p-0 border-end' style={{
+    <>
+      <div className='sticky-top'>
+        <header className='d-flex py-2 px-4 border-bottom bg-white'>
+          <div className='d-flex flex-row align-items-center w-100'>
+            {_.isNil(LayoutBrandComponent) ? (
+              <>
+                {brandIcon ?? <BrandDefaultLogo name={brandTitle} />}
+                {brandTitle && <span className='h3 m-0 ms-3 col-auto'>{brandTitle}</span>}
+              </>
+            ) : LayoutBrandComponent}
+            {!_.isEmpty(locales) && <div className='ms-auto col-auto'>
+              <select className="form-select" onChange={(e) => { setPreferredLocale(e.target.value); }}>
+                {_.map(locales, ({ locale, label }) => (
+                  currentLocale === locale ? <option selected value={locale}>{label}</option> : <option value={locale}>{label}</option>
+                ))}
+              </select>
+            </div>}
+          </div>
+        </header>
+        <aside className='d-flex flex-column border-right' style={{
           overflowY: 'auto',
-          minHeight: '100%',
+          position: 'absolute',
+          top: '100%',
+          height: 'calc(100vh - 100%)',
           width: 200,
-          height: 0,
           ...menuContainerStyle,
         }}>
-          <div className='position-fixed start-0 bottom-0' style={{
-            width: 'inherit',
-            top: headerHeight,
-          }}>
-            <div className='d-flex flex-column absolute-fill'>
-              <div style={{ flex: 1, overflowY: 'auto' }}>
-                <SideMenu pages={pages} menuStyle={style.menuItem} themeColor={themeColor} />
-              </div>
-              {_.isFunction(onLogout) && (
-                <Pressable onPress={onLogout}>
-                  <div className='d-flex flex-nowrap ps-3 py-2 text-body link-primary'>
-                    <StyleProvider components={{ text: { color: 'inherit', fontSize: theme.root.fontSize } }}>
-                      <Icon icon='MaterialIcons' name='logout' />
-                    </StyleProvider>
-                    <span className='my-0 h6 ms-1'>{localization.string('logout')}</span>
-                  </div>
-                </Pressable>
-              )}
+          <div className='d-flex flex-column absolute-fill'>
+            <div style={{ flex: 1, overflowY: 'auto' }}>
+              <SideMenu pages={pages} menuStyle={style.menuItem} themeColor={themeColor} />
             </div>
+            {_.isFunction(onLogout) && (
+              <Pressable onPress={onLogout}>
+                <div className='d-flex flex-nowrap ps-3 py-2 text-body link-primary'>
+                  <StyleProvider components={{ text: { color: 'inherit', fontSize: theme.root.fontSize } }}>
+                    <Icon icon='MaterialIcons' name='logout' />
+                  </StyleProvider>
+                  <span className='my-0 h6 ms-1'>{localization.string('logout')}</span>
+                </div>
+              </Pressable>
+            )}
           </div>
         </aside>
-        <main className='d-flex flex-fill p-0'>{children}</main>
       </div>
-    </React.Fragment>
-  )
+      <div className='d-flex row flex-nowrap flex-fill' style={{ paddingLeft: 200 }}>
+        <main className='d-flex flex-fill flex-column overflow-auto'>{children}</main>
+      </div>
+    </>
+  );
 };
 
 export default Layout;
