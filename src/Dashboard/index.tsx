@@ -41,18 +41,12 @@ type DashboardProps = {
 export const Dashboard: React.FC<DashboardProps> = ({
   LayoutComponent = Layout,
   LoginComponent = LoginPage,
-  color,
   pages,
-  locales,
   logined = false,
   LoginBrandComponent,
-  brandIcon,
-  brandTitle,
-  LayoutBrandComponent,
-  menuContainerStyle,
   onLogin,
-  onLogout,
   onError,
+  ...layoutProps
 }) => {
 
   const _pages = React.useMemo(
@@ -72,16 +66,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
   return (
     <ThemeProvider>
       {!logined ? <LoginComponent onLogin={_onLogin} LoginBrandComponent={LoginBrandComponent} /> : (
-        <LayoutComponent
-          color={color}
-          pages={pages}
-          locales={locales}
-          onLogout={onLogout}
-          brandIcon={brandIcon}
-          brandTitle={brandTitle}
-          LayoutBrandComponent={LayoutBrandComponent}
-          menuContainerStyle={menuContainerStyle}
-        >
+        <LayoutComponent pages={pages} {...layoutProps}>
           <Navigator pages={_pages} onError={onError} />
         </LayoutComponent>
       )}

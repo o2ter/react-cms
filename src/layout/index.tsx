@@ -43,6 +43,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
   brandIcon?: React.ReactNode;
   brandTitle?: string;
   LayoutBrandComponent?: React.ReactNode;
+  headerContainerStyle?: React.CSSProperties;
   menuContainerStyle?: React.CSSProperties;
 }>> = ({
   color,
@@ -52,6 +53,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
   brandIcon,
   brandTitle,
   LayoutBrandComponent,
+  headerContainerStyle,
   menuContainerStyle,
   children
 }) => {
@@ -79,7 +81,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
   return (
     <>
       <div className='sticky-top'>
-        <header className='d-flex py-2 px-4 border-bottom bg-white'>
+        <header className='d-flex py-2 px-4 border-bottom bg-white' style={headerContainerStyle}>
           <div className='d-flex flex-row align-items-center w-100'>
             {_.isNil(LayoutBrandComponent) ? (
               <>
