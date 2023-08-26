@@ -112,7 +112,7 @@ export const Layout: React.FC<React.PropsWithChildren<{
             </div>
             {_.isFunction(onLogout) && (
               <Pressable onPress={onLogout}>
-                <div className='d-flex flex-nowrap ps-3 py-2 text-body link-primary'>
+                <div className='d-flex flex-nowrap ps-3 py-2 text-body'>
                   <StyleProvider components={{ text: { color: 'inherit', fontSize: theme.root.fontSize } }}>
                     <Icon icon='MaterialIcons' name='logout' />
                   </StyleProvider>
