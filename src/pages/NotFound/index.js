@@ -33,8 +33,10 @@ export default function NotFound() {
 
   const localization = Localization.useLocalize();
 
-  return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text style={{ fontWeight: 'bold', fontSize: 96 }}>404</Text>
-    <Text style={{ fontWeight: 'bold', fontSize: 24 }}>{localization.string('NotFoundMessage')}</Text>
-  </View>;
+  return (
+    <View classes='align-items-center justify-content-center' style={{ flex: 1 }}>
+      <Text classes='display-1 fw-bold'>404</Text>
+      <Text classes='fs-3 fw-bold'>{localization.string('NotFoundMessage')}</Text>
+    </View>
+  );
 }
