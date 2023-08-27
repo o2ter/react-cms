@@ -28,7 +28,7 @@ import React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 import { SideMenu, PageItem } from './SideMenu';
 import { BrandDefaultLogo } from './BrandDefaultLogo';
-import { Icon, StyleProvider, useTheme } from '@o2ter/react-ui';
+import { Icon, StyleProvider, useSafeAreaInsets, useTheme } from '@o2ter/react-ui';
 
 import Localization from '../i18n/layout/SideMenu';
 import { setPreferredLocale, useLocalize } from '@o2ter/i18n';
@@ -61,6 +61,10 @@ export const Layout: React.FC<React.PropsWithChildren<{
   const localization = Localization.useLocalize();
 
   const theme = useTheme();
+  const mobile = theme.mediaSelect('sm', { up: false, down: true });
+
+  const [openMenu, setOpenMenu] = React.useState(false);
+  const { left } = useSafeAreaInsets();
 
   const _color = color ?? 'primary';
   const themeColor = theme.themeColors[_color] ?? theme.colors[_color] ?? _color;
@@ -83,6 +87,11 @@ export const Layout: React.FC<React.PropsWithChildren<{
       <div className='sticky-top'>
         <header className='d-flex py-2 px-4 border-bottom bg-white' style={headerContainerStyle}>
           <div className='d-flex flex-row align-items-center w-100'>
+            {mobile && (
+              <Pressable onPress={() => setOpenMenu(v => !v)}>
+                <Icon icon='Feather' name='menu' />
+              </Pressable>
+            )}
             {_.isNil(LayoutBrandComponent) ? (
               <>
                 {brandIcon ?? <BrandDefaultLogo name={brandTitle} />}
@@ -98,32 +107,35 @@ export const Layout: React.FC<React.PropsWithChildren<{
             </div>}
           </div>
         </header>
-        <aside className='d-flex flex-column border-right' style={{
-          overflowY: 'auto',
-          position: 'absolute',
-          top: '100%',
-          height: 'calc(100vh - 100%)',
-          width: 200,
-          ...menuContainerStyle,
-        }}>
-          <div className='d-flex flex-column absolute-fill'>
-            <div style={{ flex: 1, overflowY: 'auto' }}>
-              <SideMenu pages={pages} menuStyle={style.menuItem} themeColor={themeColor} />
+        {(!mobile || openMenu) && (
+          <aside className='d-flex flex-column bg-body border-right' style={{
+            overflowY: 'auto',
+            position: 'absolute',
+            top: '100%',
+            height: 'calc(100vh - 100%)',
+            width: 200,
+            marginLeft: left,
+            ...menuContainerStyle,
+          }}>
+            <div className='d-flex flex-column absolute-fill'>
+              <div style={{ flex: 1, overflowY: 'auto' }}>
+                <SideMenu pages={pages} menuStyle={style.menuItem} themeColor={themeColor} />
+              </div>
+              {_.isFunction(onLogout) && (
+                <Pressable onPress={onLogout}>
+                  <div className='d-flex flex-nowrap ps-3 py-2 text-body'>
+                    <StyleProvider components={{ text: { color: 'inherit', fontSize: theme.root.fontSize } }}>
+                      <Icon icon='MaterialIcons' name='logout' />
+                    </StyleProvider>
+                    <span className='my-0 h6 ms-1'>{localization.string('logout')}</span>
+                  </div>
+                </Pressable>
+              )}
             </div>
-            {_.isFunction(onLogout) && (
-              <Pressable onPress={onLogout}>
-                <div className='d-flex flex-nowrap ps-3 py-2 text-body'>
-                  <StyleProvider components={{ text: { color: 'inherit', fontSize: theme.root.fontSize } }}>
-                    <Icon icon='MaterialIcons' name='logout' />
-                  </StyleProvider>
-                  <span className='my-0 h6 ms-1'>{localization.string('logout')}</span>
-                </div>
-              </Pressable>
-            )}
-          </div>
-        </aside>
+          </aside>
+        )}
       </div>
-      <div className='d-flex row flex-nowrap flex-fill' style={{ paddingLeft: 200 }}>
+      <div className='d-flex row flex-nowrap flex-fill' style={{ paddingLeft: left + (mobile ? 0 : 200) }}>
         <main className='d-flex flex-fill flex-column overflow-auto'>{children}</main>
       </div>
     </>
