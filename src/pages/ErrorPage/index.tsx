@@ -1,5 +1,5 @@
 //
-//  index.js
+//  index.tsx
 //
 //  The MIT License
 //  Copyright (c) 2021 - 2023 O2ter Limited. All rights reserved.
@@ -33,7 +33,9 @@ export default function ErrorPage() {
 
   const localization = Localization.useLocalize();
 
-  return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text style={{ fontWeight: 'bold', fontSize: 24 }}>{localization.string('ErrorMessage')}</Text>
-  </View>;
+  return (
+    <View classes='align-items-center justify-content-center' style={{ flex: 1 }}>
+      <Text classes='fs-3 fw-bold'>{localization.string('ErrorMessage')}</Text>
+    </View>
+  );
 }
