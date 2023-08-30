@@ -52,7 +52,7 @@ export const LoginPage: React.FC<{
           flex: 1,
         }}
       >
-        <View classes='bg-white px-3 py-2 rounded-sm'>
+        <View classes='bg-white px-3 py-2 rounded-1'>
           {LoginBrandComponent}
           <Form
             schema={schema}
