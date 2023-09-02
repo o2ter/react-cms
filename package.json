@@ -50,7 +50,6 @@
     "rollup-plugin-sass": "^1.12.17",
     "sugax": "^1.0.84",
     "tslib": "^2.4.1",
-    "typescript": "^4.9.4",
-    "webpack": "^5.76.0"
+    "typescript": "^4.9.4"
   }
 }
