@@ -28,7 +28,7 @@ import React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 import { SideMenu, PageItem } from './SideMenu';
 import { BrandDefaultLogo } from './BrandDefaultLogo';
-import { Icon, StyleProvider, useSafeAreaInsets, useTheme } from '@o2ter/react-ui';
+import { Icon, StyleProvider, useSafeAreaInsets, useTheme, useMediaSelect } from '@o2ter/react-ui';
 
 import Localization from '../i18n/layout/SideMenu';
 import { setPreferredLocale, useLocalize } from '@o2ter/i18n';
@@ -61,7 +61,8 @@ export const Layout: React.FC<React.PropsWithChildren<{
   const localization = Localization.useLocalize();
 
   const theme = useTheme();
-  const mobile = theme.mediaSelect('sm', { up: false, down: true });
+  const { select } = useMediaSelect();
+  const mobile = select('sm', { up: false, down: true });
 
   const [openMenu, setOpenMenu] = React.useState(false);
   const { left } = useSafeAreaInsets();
