@@ -25,7 +25,7 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { useToast, ThemeProvider } from '@o2ter/react-ui';
+import { useAlert, ThemeProvider } from '@o2ter/react-ui';
 import { Layout } from '../layout';
 import { Navigator } from '../Navigator';
 import LoginPage from '../pages/LoginPage';
@@ -54,7 +54,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
     [pages]
   );
 
-  const { showError } = useToast();
+  const { showError } = useAlert();
   const _showError = React.useCallback((resolve: () => any) => {
     (async () => {
       try { await resolve(); } catch (e) { showError(e as Error); }

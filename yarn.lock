@@ -1249,12 +1249,13 @@
     events ">=3.3.0"
     lodash ">=4.17.21"
 
-"@o2ter/react-ui@^0.0.231":
-  version "0.0.231"
-  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.231.tgz#b12fdc8ec938a8168e8b5b6524c062cc3bb5c465"
-  integrity sha512-axLOjfzPU+dVAsLOcjLE8u7oVqAPWTw7NAnkNg6kIJR3bzgkUSwrIrhyXbSkogEI8yRN717U8snvoXoSjsrqZw==
+"@o2ter/react-ui@^0.0.268":
+  version "0.0.268"
+  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.268.tgz#99c0e694fc7a91556d9c947f0dd9d59a631de98f"
+  integrity sha512-1Efd2RhjSKq4UIAU/7mF+0mOcHapstIdNX/K335H3AqtmsBkmsGt2otFRs+hezARtAYYsH8Gl3Gx8bVnagRuNg==
   dependencies:
     "@react-native-picker/picker" ">=2.4.8"
+    "@react-native/normalize-colors" "^0.74.1"
     codemirror "^6.0.1"
     d3-dsv "^3.0.1"
     jsbarcode ">=3.11.5"
@@ -1263,7 +1264,6 @@
     lottie-react-native ">=5.1.4"
     lottie-web ">=5.10.1"
     luxon ">=3.2.1"
-    normalize-css-color ">=1.0.2"
     qrcode ">=1.5.1"
     react-dom ">=18.2.0"
     react-native-fast-image ">=8.6.3"
@@ -1280,10 +1280,10 @@
   dependencies:
     lodash ">=4.17.21"
 
-"@o2ter/wireframe@^0.0.35":
-  version "0.0.35"
-  resolved "https://registry.yarnpkg.com/@o2ter/wireframe/-/wireframe-0.0.35.tgz#6da940f7d2c05d64ce435d16d3f694a1047cd801"
-  integrity sha512-pG2wFyVEcr+nIfbC6XcVn0qk4aRKrfdCB3/EVT27Bk70/tnJoEyGzK578ZSwQA9uSqua3guaW2FFWHVhx1iU0A==
+"@o2ter/wireframe@^0.0.46":
+  version "0.0.46"
+  resolved "https://registry.yarnpkg.com/@o2ter/wireframe/-/wireframe-0.0.46.tgz#8dc8eeba98fec93137bfad20c4edfe340c79feda"
+  integrity sha512-iO4hZCjeCiCY39hgOQolo9CK0FqK4hviTCk5NR0U+kNU7MKXygkOVfhc3LC58e7WN2eAIB+T3eaOeKk9bN7H6w==
   dependencies:
     lodash ">=4.17.21"
 
@@ -1291,6 +1291,11 @@
   version "2.4.8"
   resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.8.tgz#a1a21f3d6ecadedbc3f0b691a444ddd7baa081f8"
   integrity sha512-5NQ5XPo1B03YNqKFrV6h9L3CQaHlB80wd4ETHUEABRP2iLh7FHLVObX2GfziD+K/VJb8G4KZcZ23NFBFP1f7bg==
+
+"@react-native/normalize-colors@^0.74.1":
+  version "0.74.1"
+  resolved "https://registry.yarnpkg.com/@react-native/normalize-colors/-/normalize-colors-0.74.1.tgz#6e8ccf99954728dcd3cfe0d56e758ee5050a7bea"
+  integrity sha512-r+bTRs6pImqE3fx4h7bPzH2sOWSrnSHF/RJ7d00pNUj2P6ws3DdhS7WV+/7YosZkloYQfkiIkK3pIHvcYn665w==
 
 "@remix-run/router@1.4.0":
   version "1.4.0"
@@ -2190,11 +2195,6 @@ node-releases@^2.0.6:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.8.tgz#0f349cdc8fcfa39a92ac0be9bc48b7706292b9ae"
   integrity sha512-dFSmB8fFHEH/s81Xi+Y/15DQY6VHW81nXRj86EMSL3lmuTmK1e+aT4wrFCkTbm+gSwkw4KpX+rT/pMM2c1mF+A==
 
-normalize-css-color@>=1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/normalize-css-color/-/normalize-css-color-1.0.2.tgz#02991e97cccec6623fe573afbbf0de6a1f3e9f8d"
-  integrity sha512-jPJ/V7Cp1UytdidsPqviKEElFQJs22hUUgK5BOPHTwOonNCk7/2qOxhhqzEajmFrWJowADFfOFh1V+aWkRfy+w==
-
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
@@ -2570,12 +2570,10 @@ style-mod@^4.0.0:
   resolved "https://registry.yarnpkg.com/style-mod/-/style-mod-4.0.2.tgz#ef9e14c4c67428bcf31cc886787e81ca7f8f5021"
   integrity sha512-C4myMmRTO8iaC5Gg+N1ftK2WT4eXUTMAa+HEFPPrfVeO/NtqLTtAmV1HbqnuGtLwCek44Ra76fdGUkSqjiMPcQ==
 
-sugax@^1.0.84:
-  version "1.0.84"
-  resolved "https://registry.yarnpkg.com/sugax/-/sugax-1.0.84.tgz#f4c3b7f6a2763b21db3db28afe8fd01ad849428c"
-  integrity sha512-48g+1PYGT7BplenMYP0CAvM4FBQMMXgLfKDDEoIc2mwk0q8lEuiIKJ/GJKWVNoNUckFzMcC+h1RraR/9S9BsUw==
-  dependencies:
-    lodash ">=4.17.21"
+sugax@^1.0.90:
+  version "1.0.90"
+  resolved "https://registry.yarnpkg.com/sugax/-/sugax-1.0.90.tgz#77e16d84c4e1cd57ba7858c43255c152edde072d"
+  integrity sha512-ru+7mmWcl7dhIVwMSwOwUly33fM+jcld4hxRNlC/piwwkbytnfbN693mtBuA89MwI73HgbTPqlEpbI9aph7tmg==
 
 supports-color@^5.3.0:
   version "5.5.0"
