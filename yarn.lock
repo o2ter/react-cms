@@ -1249,10 +1249,10 @@
     events ">=3.3.0"
     lodash ">=4.17.21"
 
-"@o2ter/react-ui@^0.0.268":
-  version "0.0.268"
-  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.268.tgz#99c0e694fc7a91556d9c947f0dd9d59a631de98f"
-  integrity sha512-1Efd2RhjSKq4UIAU/7mF+0mOcHapstIdNX/K335H3AqtmsBkmsGt2otFRs+hezARtAYYsH8Gl3Gx8bVnagRuNg==
+"@o2ter/react-ui@^0.0.271":
+  version "0.0.271"
+  resolved "https://registry.yarnpkg.com/@o2ter/react-ui/-/react-ui-0.0.271.tgz#e753b20642d4957214d5bf59891a8216e677e081"
+  integrity sha512-m7xwVmAf+WClqi2jPsm/EFJtUvWG/3YF3LFx+D4CVq02qLeCEzK9+JOcpC2kjfeI6HupT2aljNW9LXUI7A1Wnw==
   dependencies:
     "@react-native-picker/picker" ">=2.4.8"
     "@react-native/normalize-colors" "^0.74.1"
