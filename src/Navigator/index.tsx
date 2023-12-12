@@ -34,22 +34,29 @@ type NavigatorProps = {
   onError?: (error: Error, info: React.ErrorInfo) => void;
 };
 
+const withError = (
+  Component: any,
+  onError?: (error: Error, info: React.ErrorInfo) => void,
+) => () => (
+  <ErrorBoundary onError={onError} fallback={(error) => <ErrorPage />}>
+    <Component />
+  </ErrorBoundary>
+);
+
 export const Navigator: React.FC<NavigatorProps> = ({
   pages,
   onError,
 }) => {
   const id = React.useId();
   return (
-    <ErrorBoundary onError={onError} fallback={(error) => <ErrorPage />}>
-      <_Navigator>
-        {pages?.map(({ path, ...props }) => (
-          <Route key={`${id}-${path}`} path={path} {...props} />
-        ))}
-        {!_.some(pages, p => p.path === '*') && (
-          <Route path='*' title='404 Not Found' statusCode={404} component={NotFound} />
-        )}
-      </_Navigator>
-    </ErrorBoundary>
+    <_Navigator>
+      {pages?.map(({ path, component, ...props }) => (
+        <Route key={`${id}-${path}`} path={path} component={withError(component, onError)} {...props} />
+      ))}
+      {!_.some(pages, p => p.path === '*') && (
+        <Route path='*' title='404 Not Found' statusCode={404} component={NotFound} />
+      )}
+    </_Navigator>
   );
 };
 
